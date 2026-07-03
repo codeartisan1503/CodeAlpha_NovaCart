@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - NovaCart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="glass scrolled">
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-shopping-bag"></i> Nova<span>Cart</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button id="theme-toggle" class="nav-icon"><i class="fas fa-moon"></i></button>
+        <a href="/wishlist/" class="nav-icon">
+          <i class="fas fa-heart"></i>
+          <span id="wishlist-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top: 100px; margin-bottom: 80px;">
+    <h1 style="font-size: 28px; font-weight: 700; margin-bottom: 30px; color: var(--slate-900);">Shopping Cart</h1>
+
+    <!-- Empty Cart Panel -->
+    <div class="empty-state glass" id="cart-empty-state" style="display: none;">
+      <div class="empty-state-icon"><i class="fas fa-shopping-cart"></i></div>
+      <h2>Your Cart is Empty</h2>
+      <p style="color:var(--slate-500); margin-bottom: 24px;">Looks like you haven't added anything to your cart yet.</p>
+      <a href="/shop/" class="btn-primary">Start Shopping</a>
+    </div>
+
+    <!-- Active Cart Layout Grid -->
+    <div class="cart-layout" id="cart-layout-wrapper" style="display: none;">
+      <!-- Left side: Cart items list -->
+      <div>
+        <div class="cart-items-wrapper" id="active-items-list">
+          <!-- Active cart row elements loaded dynamically -->
+        </div>
+
+        <!-- Save For Later shelf -->
+        <div style="margin-top: 50px;" id="save-later-wrapper">
+          <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--slate-900);">Saved For Later</h2>
+          <div class="cart-items-wrapper" id="save-later-list">
+            <!-- Save for Later items loaded dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Summary pane -->
+      <aside>
+        <div class="order-summary-box glass">
+          <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--slate-900); border-bottom: 1px solid var(--slate-200); padding-bottom: 10px;">Order Summary</h2>
+          
+          <!-- Coupon Input Form -->
+          <div style="margin-bottom: 20px;">
+            <div style="font-size:12px; font-weight:600; color:var(--slate-500); margin-bottom:8px;">Have a Promo Coupon?</div>
+            <div class="coupon-input-group">
+              <input type="text" id="coupon-code-input" class="coupon-input" placeholder="e.g. WELCOME10">
+              <button class="btn-primary" id="btn-apply-coupon" style="padding: 10px 16px; border-radius: var(--radius-sm); font-size:13px; box-shadow:none;">Apply</button>
+            </div>
+            <!-- Coupon Validation Message -->
+            <div id="coupon-message" style="font-size:12px; font-weight:600; margin-top:-10px; display:none;"></div>
+          </div>
+
+          <!-- Total summary items -->
+          <div class="summary-row">
+            <span style="color:var(--slate-500);">Subtotal</span>
+            <span id="summary-subtotal" style="font-weight:600; color:var(--slate-800);">$0.00</span>
+          </div>
+          <div class="summary-row" id="coupon-discount-row" style="display: none;">
+            <span style="color:var(--success);">Coupon Discount</span>
+            <span id="summary-discount" style="font-weight:600; color:var(--success);">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span style="color:var(--slate-500);">Estimated Shipping</span>
+            <span id="summary-shipping" style="font-weight:600; color:var(--slate-800);">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span style="color:var(--slate-500);">Estimated Tax (18%)</span>
+            <span id="summary-tax" style="font-weight:600; color:var(--slate-800);">$0.00</span>
+          </div>
+
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <span id="summary-total-price">$0.00</span>
+          </div>
+
+          <button class="btn-primary" id="btn-checkout-proceed" style="width: 100%; justify-content: center; margin-top: 24px; padding: 14px;">
+            Proceed to Checkout <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Firebase & Services Scripts -->
+  <script src="/static/firebase-config.js"></script>
+  <script src="/static/firebase-services.js"></script>
+  <script src="/static/js/main.js"></script>
+
+  <!-- Local Page Logic -->
+  <script>
+    let appliedCoupon = null;
+    let productsCache = {};
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadCartDetails();
+      initCouponLogic();
+      
+      document.getElementById("btn-checkout-proceed").onclick = () => {
+        // Save current coupon state so checkout page can pull it
+        if (appliedCoupon) {
+          localStorage.setItem("novacart_active_coupon", JSON.stringify(appliedCoupon));
+        } else {
+          localStorage.removeItem("novacart_active_coupon");
+        }
+        window.location.href = '/checkout/';
+      };
+    });
+
+    // Load and render cart item lists
+    async function loadCartDetails() {
+      const cart = window.CartManager.get();
+      
+      if (cart.length === 0) {
+        showEmptyState();
+        return;
+      }
+
+      // Pre-fetch all products to cache for rendering
+      try {
+        const res = await window.NovaDB.getProducts({ limit: 100 });
+        res.products.forEach(p => {
+          productsCache[p.productId] = p;
+        });
+      } catch (err) {
+        console.error("Failed to load products for cart:", err);
+      }
+
+      const activeItems = cart.filter(item => !item.savedForLater);
+      const saveLaterItems = cart.filter(item => item.savedForLater);
+
+      if (activeItems.length === 0 && saveLaterItems.length === 0) {
+        showEmptyState();
+        return;
+      }
+
+      // Show wrapper layouts
+      document.getElementById("cart-empty-state").style.display = "none";
+      document.getElementById("cart-layout-wrapper").style.display = "grid";
+
+      renderActiveCart(activeItems);
+      renderSaveLater(saveLaterItems);
+      calculateTotals(activeItems);
+    }
+
+    function showEmptyState() {
+      document.getElementById("cart-empty-state").style.display = "block";
+      document.getElementById("cart-layout-wrapper").style.display = "none";
+      window.updateNavCounts();
+    }
+
+    // Render active cart items
+    function renderActiveCart(items) {
+      const container = document.getElementById("active-items-list");
+      
+      if (items.length === 0) {
+        container.innerHTML = '<p style="color:var(--slate-500); padding:20px 0; text-align:center;">Your active shopping cart is empty.</p>';
+        return;
+      }
+
+      container.innerHTML = items.map(item => {
+        const p = productsCache[item.productId];
+        if (!p) return '';
+
+        const discPrice = p.price * (1 - p.discount/100.0);
+        const itemTotal = discPrice * item.quantity;
+        
+        return `
+          <div class="cart-item-row glass">
+            <div class="cart-item-image">
+              <img src="${p.images[0]}" alt="${p.name}">
+            </div>
+            <div class="cart-item-details">
+              <span class="product-brand">${p.brand}</span>
+              <div class="cart-item-title">${p.name}</div>
+              <div class="cart-item-price">$${discPrice.toFixed(2)} ${p.discount > 0 ? `<span style="font-size:12px; text-decoration:line-through; color:var(--slate-400); font-weight:normal; margin-left:8px;">$${p.price.toFixed(2)}</span>` : ''}</div>
+              <div style="font-size:12px; color:var(--slate-400); margin-top:4px;">Stock available: ${p.stock}</div>
+            </div>
+            <div class="cart-item-actions">
+              <!-- Quantity adjustment -->
+              <div class="qty-selector">
+                <button class="qty-btn" onclick="adjustQty('${item.productId}', ${item.quantity - 1}, ${p.stock})">-</button>
+                <input type="text" class="qty-input" value="${item.quantity}" readonly>
+                <button class="qty-btn" onclick="adjustQty('${item.productId}', ${item.quantity + 1}, ${p.stock})">+</button>
+              </div>
+              <div style="font-weight:700; width:80px; text-align:right;">$${itemTotal.toFixed(2)}</div>
+              <button class="btn-secondary" style="padding: 8px 12px; font-size:12px;" onclick="saveForLater('${item.productId}')">Save for Later</button>
+              <button class="cart-item-delete" onclick="removeItem('${item.productId}')"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Save For Later shelf
+    function renderSaveLater(items) {
+      const wrapper = document.getElementById("save-later-wrapper");
+      const container = document.getElementById("save-later-list");
+
+      if (items.length === 0) {
+        wrapper.style.display = "none";
+        return;
+      }
+
+      wrapper.style.display = "block";
+      container.innerHTML = items.map(item => {
+        const p = productsCache[item.productId];
+        if (!p) return '';
+
+        const discPrice = p.price * (1 - p.discount/100.0);
+
+        return `
+          <div class="cart-item-row glass" style="opacity: 0.85;">
+            <div class="cart-item-image">
+              <img src="${p.images[0]}" alt="${p.name}">
+            </div>
+            <div class="cart-item-details">
+              <span class="product-brand">${p.brand}</span>
+              <div class="cart-item-title">${p.name}</div>
+              <div class="cart-item-price">$${discPrice.toFixed(2)}</div>
+            </div>
+            <div class="cart-item-actions">
+              <button class="btn-primary" style="padding: 8px 16px; font-size:12px;" onclick="moveToCart('${item.productId}')">Move to Cart</button>
+              <button class="cart-item-delete" onclick="removeItem('${item.productId}')"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Update quantities with bounds checking
+    function adjustQty(productId, newQty, stockLimit) {
+      if (newQty < 1) return;
+      if (newQty > stockLimit) {
+        window.showToast(`Cannot exceed maximum available stock: ${stockLimit}`, "warning");
+        return;
+      }
+      window.CartManager.updateQty(productId, newQty);
+      loadCartDetails();
+    }
+
+    function removeItem(productId) {
+      window.CartManager.remove(productId);
+      loadCartDetails();
+    }
+
+    function saveForLater(productId) {
+      window.CartManager.toggleSaveForLater(productId);
+      loadCartDetails();
+    }
+
+    function moveToCart(productId) {
+      window.CartManager.toggleSaveForLater(productId);
+      loadCartDetails();
+    }
+
+    // Process price calculations
+    function calculateTotals(activeItems) {
+      let subtotal = 0.0;
+      activeItems.forEach(item => {
+        const p = productsCache[item.productId];
+        if (p) {
+          const discPrice = p.price * (1 - p.discount/100.0);
+          subtotal += discPrice * item.quantity;
+        }
+      });
+
+      let discount = 0.0;
+      const discountRow = document.getElementById("coupon-discount-row");
+      const discountVal = document.getElementById("summary-discount");
+      
+      if (appliedCoupon && subtotal >= appliedCoupon.minOrder) {
+        if (appliedCoupon.type === "percentage") {
+          discount = subtotal * (appliedCoupon.value / 100.0);
+        } else {
+          discount = appliedCoupon.value;
+        }
+        
+        discountVal.textContent = `-$${discount.toFixed(2)}`;
+        discountRow.style.display = "flex";
+      } else {
+        discountRow.style.display = "none";
+        // If subtotal fell below minOrder limit, remove coupon
+        if (appliedCoupon) {
+          appliedCoupon = null;
+          document.getElementById("coupon-message").textContent = "Coupon removed: order subtotal fell below minimum requirement.";
+          document.getElementById("coupon-message").style.className = "text-danger";
+          document.getElementById("coupon-code-input").value = "";
+        }
+      }
+
+      // Shipping: Free if subtotal > 200, else $15
+      const shipping = subtotal > 200.0 ? 0.0 : 15.00;
+      
+      // Tax: 18% of discounted subtotal
+      const tax = (subtotal - discount) * 0.18;
+      
+      const total = (subtotal - discount) + shipping + tax;
+
+      // Update summary fields
+      document.getElementById("summary-subtotal").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("summary-shipping").textContent = shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`;
+      document.getElementById("summary-tax").textContent = `$${tax.toFixed(2)}`;
+      document.getElementById("summary-total-price").textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Coupon Apply Action
+    function initCouponLogic() {
+      const input = document.getElementById("coupon-code-input");
+      const btn = document.getElementById("btn-apply-coupon");
+      const msg = document.getElementById("coupon-message");
+
+      btn.onclick = async () => {
+        const code = input.value.trim().toUpperCase();
+        if (!code) {
+          window.showToast("Please enter a coupon code.", "danger");
+          return;
+        }
+
+        // Calculate current subtotal
+        const cart = window.CartManager.get().filter(item => !item.savedForLater);
+        let subtotal = 0.0;
+        cart.forEach(item => {
+          const p = productsCache[item.productId];
+          if (p) {
+            subtotal += p.price * (1 - p.discount/100.0) * item.quantity;
+          }
+        });
+
+        try {
+          const res = await window.NovaDB.validateCoupon(code, subtotal);
+          msg.style.display = "block";
+          
+          if (res.valid) {
+            appliedCoupon = res;
+            msg.textContent = res.message;
+            msg.style.color = "var(--success)";
+            window.showToast("Coupon applied successfully!", "success");
+            calculateTotals(cart);
+          } else {
+            appliedCoupon = null;
+            msg.textContent = res.message;
+            msg.style.color = "var(--danger)";
+            window.showToast(res.message, "danger");
+            calculateTotals(cart);
+          }
+        } catch (err) {
+          window.showToast("Coupon validation error", "danger");
+        }
+      };
+    }
+  </script>
+</body>
+</html>

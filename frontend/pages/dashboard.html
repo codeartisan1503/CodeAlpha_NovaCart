@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - NovaCart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="glass scrolled">
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-shopping-bag"></i> Nova<span>Cart</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button id="theme-toggle" class="nav-icon"><i class="fas fa-moon"></i></button>
+        <a href="/wishlist/" class="nav-icon">
+          <i class="fas fa-heart"></i>
+          <span id="wishlist-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top: 100px; margin-bottom: 80px;">
+    
+    <!-- ================= LOGGED OUT: AUTH SCREENS ================= -->
+    <div id="auth-panel-wrapper" style="display: none; max-width: 480px; margin: 0 auto;">
+      <!-- Sign In Form -->
+      <div class="checkout-card glass" id="signin-card">
+        <h2 style="font-size:24px; font-weight:700; text-align:center; border:none; margin-bottom:12px;">Welcome Back</h2>
+        <p style="text-align:center; color:var(--slate-500); margin-bottom:24px;">Sign in to your NovaCart account</p>
+        <form id="signin-form">
+          <div class="form-group">
+            <label for="login-email">Email Address *</label>
+            <input type="email" id="login-email" required placeholder="name@example.com">
+          </div>
+          <div class="form-group" style="margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label for="login-password">Password *</label>
+              <a href="#" id="btn-forgot-pwd" style="font-size:12px; color:var(--primary); font-weight:600;">Forgot Password?</a>
+            </div>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+          <label class="filter-checkbox" style="margin-bottom:24px;">
+            <input type="checkbox" id="login-remember"> Remember Me
+          </label>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:12px;">Sign In</button>
+        </form>
+        <p style="text-align:center; font-size:14px; margin-top:20px; color:var(--slate-600);">
+          Don't have an account? <a href="#" id="link-goto-signup" style="color:var(--primary); font-weight:600;">Register Now</a>
+        </p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="checkout-card glass" id="signup-card" style="display: none;">
+        <h2 style="font-size:24px; font-weight:700; text-align:center; border:none; margin-bottom:12px;">Create Account</h2>
+        <p style="text-align:center; color:var(--slate-500); margin-bottom:24px;">Sign up for premium shopping access</p>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="reg-name">Full Name *</label>
+            <input type="text" id="reg-name" required placeholder="John Smith">
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" required placeholder="name@example.com">
+          </div>
+          <div class="form-group" style="margin-bottom:24px;">
+            <label for="reg-password">Password *</label>
+            <input type="password" id="reg-password" required placeholder="Minimum 6 characters">
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:12px;">Register</button>
+        </form>
+        <p style="text-align:center; font-size:14px; margin-top:20px; color:var(--slate-600);">
+          Already have an account? <a href="#" id="link-goto-signin" style="color:var(--primary); font-weight:600;">Sign In</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= LOGGED IN: USER PROFILE CONTROL PANEL ================= -->
+    <div class="dashboard-layout" id="dashboard-panel-wrapper" style="display: none;">
+      <!-- Sidebar navigation -->
+      <aside class="dashboard-sidebar">
+        <div style="text-align: center; padding: 20px 0; border-bottom: 1px solid var(--slate-200); margin-bottom: 20px;">
+          <img id="profile-avatar" class="user-avatar" src="" alt="Avatar" style="width:80px; height:80px; margin-bottom:12px;">
+          <h3 id="profile-name" style="font-size:16px; font-weight:700; color:var(--slate-900);">Name</h3>
+          <p id="profile-email" style="font-size:12px; color:var(--slate-500);">user@example.com</p>
+        </div>
+        <div class="dashboard-side-btn active" data-panel="panel-orders"><i class="fas fa-shopping-bag"></i> My Orders</div>
+        <div class="dashboard-side-btn" data-panel="panel-addresses"><i class="fas fa-map-marker-alt"></i> Saved Addresses</div>
+        <div class="dashboard-side-btn" data-panel="panel-settings"><i class="fas fa-user-cog"></i> Profile Settings</div>
+      </aside>
+
+      <!-- Main Panels -->
+      <main>
+        <!-- Panel 1: Orders list -->
+        <div class="dashboard-panel active" id="panel-orders">
+          <h2 style="font-size:20px; font-weight:700; color:var(--slate-900); margin-bottom:20px;">Order History</h2>
+          <div id="orders-history-list" style="display:flex; flex-direction:column; gap:24px;">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+
+        <!-- Panel 2: Saved Addresses -->
+        <div class="dashboard-panel" id="panel-addresses">
+          <h2 style="font-size:20px; font-weight:700; color:var(--slate-900); margin-bottom:20px;">Saved Addresses</h2>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;" id="addresses-list-container">
+            <!-- Loaded dynamically or displays default address -->
+          </div>
+        </div>
+
+        <!-- Panel 3: Settings -->
+        <div class="dashboard-panel" id="panel-settings">
+          <h2 style="font-size:20px; font-weight:700; color:var(--slate-900); margin-bottom:20px;">Account Settings</h2>
+          <div class="checkout-card glass" style="margin-bottom:0;">
+            <form id="settings-profile-form">
+              <div class="form-group">
+                <label for="settings-name">Display Name</label>
+                <input type="text" id="settings-name">
+              </div>
+              <div class="form-group" style="margin-bottom:20px;">
+                <label for="settings-avatar-url">Profile Image URL</label>
+                <input type="text" id="settings-avatar-url">
+              </div>
+              <button type="submit" class="btn-primary" style="padding:10px 24px;">Save Settings</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Firebase & Services Scripts -->
+  <script src="/static/firebase-config.js"></script>
+  <script src="/static/firebase-services.js"></script>
+  <script src="/static/js/main.js"></script>
+
+  <!-- Local Page Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Auth State change
+      window.NovaAuth.onAuthStateChanged(user => {
+        if (user) {
+          // Logged in
+          document.getElementById("auth-panel-wrapper").style.display = "none";
+          document.getElementById("dashboard-panel-wrapper").style.display = "grid";
+          
+          // Draw Profile details
+          document.getElementById("profile-avatar").src = user.photoURL || "/static/images/placeholder.svg";
+          document.getElementById("profile-name").textContent = user.displayName || user.email.split("@")[0].toUpperCase();
+          document.getElementById("profile-email").textContent = user.email;
+
+          // Pre-populate settings form
+          document.getElementById("settings-name").value = user.displayName || "";
+          document.getElementById("settings-avatar-url").value = user.photoURL || "";
+
+          loadUserOrders();
+          loadAddresses(user);
+        } else {
+          // Logged out
+          document.getElementById("auth-panel-wrapper").style.display = "block";
+          document.getElementById("dashboard-panel-wrapper").style.display = "none";
+          initAuthForms();
+        }
+      });
+
+      initDashboardTabs();
+      initSettingsFormSubmit();
+    });
+
+    // Toggle panels in Dashboard sidebar
+    defActivePanel = "panel-orders";
+    function initDashboardTabs() {
+      const sideBtns = document.querySelectorAll(".dashboard-side-btn");
+      sideBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          sideBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          document.querySelectorAll(".dashboard-panel").forEach(p => p.classList.remove("active"));
+          const panelId = btn.getAttribute("data-panel");
+          document.getElementById(panelId).classList.add("active");
+        });
+      });
+    }
+
+    // Toggle Sign In vs Sign Up forms
+    function initAuthForms() {
+      const signinCard = document.getElementById("signin-card");
+      const signupCard = document.getElementById("signup-card");
+      
+      document.getElementById("link-goto-signup").onclick = (e) => {
+        e.preventDefault();
+        signinCard.style.display = "none";
+        signupCard.style.display = "block";
+      };
+
+      document.getElementById("link-goto-signin").onclick = (e) => {
+        e.preventDefault();
+        signupCard.style.display = "none";
+        signinCard.style.display = "block";
+      };
+
+      document.getElementById("btn-forgot-pwd").onclick = async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value.trim();
+        if (!email) {
+          window.showToast("Please enter your email address first.", "danger");
+          return;
+        }
+        try {
+          const msg = await window.NovaAuth.resetPassword(email);
+          window.showToast("Password reset link sent to your email address.", "success");
+        } catch (err) {
+          window.showToast(err.message, "danger");
+        }
+      };
+
+      // Form Submits
+      document.getElementById("signin-form").onsubmit = async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value.trim();
+        const pass = document.getElementById("login-password").value.trim();
+        
+        try {
+          await window.NovaAuth.signIn(email, pass);
+          window.showToast("Sign in successful!", "success");
+          
+          // Redirect if coming from checkout
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.get('redirect') === 'checkout') {
+            window.location.href = '/checkout/';
+          }
+        } catch (err) {
+          window.showToast(err.message, "danger");
+        }
+      };
+
+      document.getElementById("signup-form").onsubmit = async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("reg-name").value.trim();
+        const email = document.getElementById("reg-email").value.trim();
+        const pass = document.getElementById("reg-password").value.trim();
+
+        if (pass.length < 6) {
+          window.showToast("Password must be at least 6 characters.", "danger");
+          return;
+        }
+
+        try {
+          await window.NovaAuth.signUp(email, pass, name);
+          window.showToast("Account registration complete!", "success");
+        } catch (err) {
+          window.showToast(err.message, "danger");
+        }
+      };
+    }
+
+    // Load customer order list from API
+    async function loadUserOrders() {
+      const container = document.getElementById("orders-history-list");
+      container.innerHTML = '<div style="text-align:center;"><i class="fas fa-spinner fa-spin" style="font-size:24px; color:var(--primary);"></i></div>';
+
+      try {
+        const orders = await window.NovaDB.getOrders();
+        
+        if (orders.length === 0) {
+          container.innerHTML = '<div class="glass" style="padding:40px; text-align:center; border-radius:var(--radius-lg);"><p style="color:var(--slate-500);">You have not placed any orders yet.</p></div>';
+          return;
+        }
+
+        // Fetch all orderItems to render
+        // To simplify in mock mode, our views API checkout stores items list internally, but let's query backend
+        // We will do a check to display order details
+        container.innerHTML = orders.map(o => {
+          const date = new Date(o.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          const isCancellable = ['Pending', 'Confirmed'].includes(o.orderStatus);
+          
+          // Progress Timeline markers
+          const steps = ["Pending", "Confirmed", "Packed", "Shipped", "Delivered"];
+          const currentIdx = steps.indexOf(o.orderStatus);
+          
+          let timelineHtml = "";
+          if (o.orderStatus === "Cancelled") {
+            timelineHtml = `
+              <div style="background-color:rgba(239, 68, 68, 0.08); padding:12px; border-radius:var(--radius-sm); border:1px solid rgba(239,68,68,0.15); margin-bottom:16px; color:var(--danger); display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-times-circle"></i> This order was cancelled.
+              </div>
+            `;
+          } else {
+            timelineHtml = `
+              <div class="order-tracking-timeline">
+                ${steps.map((st, i) => {
+                  let statusClass = "";
+                  if (i < currentIdx) statusClass = "completed";
+                  else if (i === currentIdx) statusClass = "active";
+                  
+                  return `
+                    <div class="timeline-step ${statusClass}">
+                      <div class="timeline-circle">${i < currentIdx ? '<i class="fas fa-check"></i>' : (i + 1)}</div>
+                      <div class="timeline-label">${st}</div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            `;
+          }
+
+          return `
+            <div class="checkout-card glass" style="margin-bottom:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--slate-200); padding-bottom:12px; margin-bottom:16px;">
+                <div>
+                  <div style="font-weight:700; color:var(--primary);">${o.orderId}</div>
+                  <div style="font-size:12px; color:var(--slate-500);">Placed on: ${date}</div>
+                </div>
+                <div style="text-align:right;">
+                  <span class="badge ${o.orderStatus === 'Cancelled' ? 'badge-danger' : 'badge-primary'}">${o.orderStatus}</span>
+                  <div style="font-weight:700; font-size:16px; margin-top:4px;">$${o.total.toFixed(2)}</div>
+                </div>
+              </div>
+
+              ${timelineHtml}
+
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+                <a href="/api/orders/${o.orderId}/invoice/" target="_blank" class="btn-secondary" style="font-size:13px; padding:8px 16px;">
+                  <i class="fas fa-file-invoice"></i> View Invoice
+                </a>
+                ${isCancellable 
+                  ? `<button class="btn-secondary" style="font-size:13px; padding:8px 16px; color:var(--danger); border-color:var(--danger);" onclick="cancelOrderClick('${o.orderId}')"><i class="fas fa-trash"></i> Cancel Order</button>`
+                  : ''
+                }
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } catch (err) {
+        container.innerHTML = '<p style="color:var(--danger);">Error loading orders.</p>';
+      }
+    }
+
+    async function cancelOrderClick(orderId) {
+      if (!confirm("Are you sure you want to cancel this order?")) return;
+      try {
+        await window.NovaDB.cancelOrder(orderId);
+        window.showToast("Order cancelled successfully", "success");
+        loadUserOrders();
+      } catch (err) {
+        window.showToast(err.message, "danger");
+      }
+    }
+
+    // Load static mock address details
+    function loadAddresses(user) {
+      const container = document.getElementById("addresses-list-container");
+      container.innerHTML = `
+        <div class="checkout-card glass" style="margin-bottom:0;">
+          <div style="font-weight:700; color:var(--slate-900); margin-bottom:8px;">Default Shipping Address</div>
+          <p style="font-size:14px; line-height:1.5; color:var(--slate-600);">
+            <strong>${user.displayName || 'Customer'}</strong><br>
+            100 Maple St<br>
+            San Francisco, CA 94103<br>
+            United States<br>
+            Phone: +1 (555) 123-4567
+          </p>
+        </div>
+      `;
+    }
+
+    // Submit profile updates form
+    function initSettingsFormSubmit() {
+      const form = document.getElementById("settings-profile-form");
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        const displayName = document.getElementById("settings-name").value.trim();
+        const photoURL = document.getElementById("settings-avatar-url").value.trim();
+
+        try {
+          await window.NovaAuth.updateProfile({ displayName, photoURL });
+          window.showToast("Profile settings saved successfully!", "success");
+        } catch (err) {
+          window.showToast(err.message, "danger");
+        }
+      };
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - NovaCart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="glass scrolled">
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-shopping-bag"></i> Nova<span>Cart</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button id="theme-toggle" class="nav-icon"><i class="fas fa-moon"></i></button>
+        <a href="/wishlist/" class="nav-icon">
+          <i class="fas fa-heart"></i>
+          <span id="wishlist-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top: 100px; margin-bottom: 80px;">
+    <!-- Loading State -->
+    <div id="details-loader" style="text-align: center; padding: 100px 0;">
+      <i class="fas fa-spinner fa-spin" style="font-size: 48px; color: var(--primary);"></i>
+      <p style="margin-top: 16px; color: var(--slate-500);">Loading product specifications...</p>
+    </div>
+
+    <!-- Product Layout Grid (Initially Hidden) -->
+    <div class="details-layout" id="details-wrapper" style="display: none;">
+      <!-- Product Images Gallery -->
+      <div class="gallery-container">
+        <div class="main-image-viewport glass">
+          <img id="main-product-img" src="" alt="Product Main Image">
+        </div>
+        <div class="thumbnails-row" id="thumbnails-row">
+          <!-- Thumbnails loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Product Meta Info -->
+      <div class="details-info">
+        <span class="product-brand" id="details-brand">Brand Name</span>
+        <h1 id="details-title">Product Title Name</h1>
+        
+        <div class="product-rating-row" style="font-size: 16px; margin-bottom: 20px;">
+          <span id="details-stars-wrap"></span>
+          <span id="details-rating-count">(0 Reviews)</span>
+        </div>
+
+        <div class="product-price-row" style="margin-bottom: 24px;">
+          <span class="product-current-price" style="font-size: 32px;" id="details-current-price">$0.00</span>
+          <span class="product-original-price" style="font-size: 18px;" id="details-original-price">$0.00</span>
+          <span class="badge badge-danger" style="font-size: 12px;" id="details-discount-tag">0% OFF</span>
+        </div>
+
+        <p style="color: var(--slate-600); margin-bottom: 30px;" id="details-short-description">
+          Detailed preview of product specifications, build elements, and package components.
+        </p>
+
+        <!-- Availability and Quantity -->
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+          <div style="font-size: 14px; font-weight: 600;">
+            Availability: <span id="details-stock-status" class="badge badge-success">In Stock</span>
+          </div>
+
+          <div id="details-qty-wrapper" style="display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 14px; font-weight: 600; color: var(--slate-600);">Quantity</span>
+            <div class="qty-selector">
+              <button class="qty-btn" id="btn-qty-dec">-</button>
+              <input type="text" class="qty-input" id="input-qty" value="1" readonly>
+              <button class="qty-btn" id="btn-qty-inc">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Actions -->
+        <div style="display: flex; gap: 16px; margin-bottom: 40px;" id="details-action-buttons">
+          <button class="btn-primary" id="btn-add-cart" style="flex-grow: 1; justify-content: center; padding: 16px;"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+          <button class="btn-secondary" id="btn-buy-now" style="flex-grow: 1; justify-content: center; padding: 16px; background-color: var(--dark); color: white;"><i class="fas fa-bolt"></i> Buy Now</button>
+          <button class="btn-secondary" id="btn-wishlist" style="padding: 16px 20px;"><i class="far fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Description, Specifications, and Reviews Tab Layout -->
+    <div class="details-tabs" id="tabs-wrapper" style="display: none;">
+      <div class="tabs-header">
+        <button class="tab-btn active" data-tab="tab-description">Description</button>
+        <button class="tab-btn" data-tab="tab-specifications">Specifications</button>
+        <button class="tab-btn" data-tab="tab-reviews">Reviews (<span id="tab-reviews-count">0</span>)</button>
+      </div>
+
+      <!-- Description Tab -->
+      <div class="tab-pane active" id="tab-description">
+        <p id="details-full-description" style="color: var(--slate-600); font-size: 15px; line-height: 1.8;">
+          Product Description text goes here.
+        </p>
+      </div>
+
+      <!-- Specs Tab -->
+      <div class="tab-pane" id="tab-specifications">
+        <table class="specs-table" id="details-specs-table">
+          <!-- Dynamic Specs table rows -->
+        </table>
+      </div>
+
+      <!-- Reviews Tab -->
+      <div class="tab-pane" id="tab-reviews">
+        <div id="reviews-list-container">
+          <!-- Reviews list dynamically loaded -->
+        </div>
+
+        <!-- Add Review Form -->
+        <div class="add-review-box glass" id="add-review-panel">
+          <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--slate-900);">Write a Customer Review</h3>
+          <div style="font-size: 14px; font-weight: 600; color: var(--slate-600); margin-bottom: 8px;">Your Rating</div>
+          <div class="star-rating-form" id="review-stars-selector">
+            <i class="far fa-star" data-rating="1"></i>
+            <i class="far fa-star" data-rating="2"></i>
+            <i class="far fa-star" data-rating="3"></i>
+            <i class="far fa-star" data-rating="4"></i>
+            <i class="far fa-star" data-rating="5"></i>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="review-comment">Review Comments</label>
+            <textarea id="review-comment" rows="4" style="background-color: var(--slate-50); border: 1px solid var(--slate-200); padding: 12px; border-radius: var(--radius-sm); width: 100%; resize: vertical;" placeholder="What did you think of this product? Write your review comments here..."></textarea>
+          </div>
+
+          <button class="btn-primary" id="btn-submit-review" style="padding: 10px 24px;">Submit Review</button>
+        </div>
+        
+        <div class="add-review-box" id="login-to-review-panel" style="display: none; text-align: center;">
+          <p>Please <a href="/dashboard/" style="color:var(--primary); font-weight:600;">Login</a> to submit a product review.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products Showcase -->
+    <section class="section-padding" style="border-top: 1px solid var(--slate-200); margin-top: 60px; display: none;" id="related-wrapper">
+      <h2 style="font-size: 26px; font-weight: 700; color: var(--slate-900); margin-bottom: 30px;">AI Recommended Products</h2>
+      <div class="products-grid" id="related-products-grid">
+        <!-- Dynamically loaded cards -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom" style="text-align: center; color: var(--slate-500);">
+      <p>&copy; 2026 NovaCart Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Firebase & Services Scripts -->
+  <script src="/static/firebase-config.js"></script>
+  <script src="/static/firebase-services.js"></script>
+  <script src="/static/js/main.js"></script>
+
+  <!-- Local Page Logic -->
+  <script>
+    let activeProduct = null;
+    let selectedRating = 0;
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const productId = getProductIdFromUrl();
+      if (!productId) {
+        window.location.href = '/shop/';
+        return;
+      }
+
+      await loadProductDetails(productId);
+      initQuantitySelectors();
+      initTabControls();
+      initReviewStars();
+    });
+
+    // Parse product ID from path, e.g., `/product/prod_001/`
+    function getProductIdFromUrl() {
+      const paths = window.location.pathname.split('/');
+      // look for the index after "product"
+      const idx = paths.indexOf("product");
+      if (idx !== -1 && paths[idx+1]) {
+        return paths[idx+1];
+      }
+      return null;
+    }
+
+    // Load full product details
+    async function loadProductDetails(productId) {
+      try {
+        activeProduct = await window.NovaDB.getProduct(productId);
+        
+        // Hide loader, show wrappers
+        document.getElementById("details-loader").style.display = "none";
+        document.getElementById("details-wrapper").style.display = "grid";
+        document.getElementById("tabs-wrapper").style.display = "block";
+        document.getElementById("related-wrapper").style.display = "block";
+
+        // Render fields
+        document.getElementById("main-product-img").src = activeProduct.images[0];
+        document.getElementById("details-brand").textContent = activeProduct.brand;
+        document.getElementById("details-title").textContent = activeProduct.name;
+        document.getElementById("details-full-description").textContent = activeProduct.description || "No full description available for this premium product.";
+
+        // Pricing calculation
+        const discPrice = activeProduct.price * (1 - activeProduct.discount/100.0);
+        document.getElementById("details-current-price").textContent = `$${discPrice.toFixed(2)}`;
+        
+        if (activeProduct.discount > 0) {
+          document.getElementById("details-original-price").textContent = `$${activeProduct.price.toFixed(2)}`;
+          document.getElementById("details-discount-tag").textContent = `${activeProduct.discount}% OFF`;
+          document.getElementById("details-original-price").style.display = "inline";
+          document.getElementById("details-discount-tag").style.display = "inline-flex";
+        } else {
+          document.getElementById("details-original-price").style.display = "none";
+          document.getElementById("details-discount-tag").style.display = "none";
+        }
+
+        // Stock status
+        const stockStatus = document.getElementById("details-stock-status");
+        if (activeProduct.stock > 0) {
+          stockStatus.textContent = "In Stock";
+          stockStatus.className = "badge badge-success";
+          document.getElementById("details-qty-wrapper").style.display = "flex";
+          document.getElementById("btn-add-cart").disabled = false;
+          document.getElementById("btn-buy-now").disabled = false;
+        } else {
+          stockStatus.textContent = "Out of Stock";
+          stockStatus.className = "badge badge-danger";
+          document.getElementById("details-qty-wrapper").style.display = "none";
+          document.getElementById("btn-add-cart").disabled = true;
+          document.getElementById("btn-buy-now").disabled = true;
+          document.getElementById("btn-add-cart").innerHTML = "<i class='fas fa-ban'></i> Out of Stock";
+        }
+
+        // Gallery images
+        const thumbRow = document.getElementById("thumbnails-row");
+        thumbRow.innerHTML = activeProduct.images.map((img, i) => `
+          <div class="thumbnail-box ${i === 0 ? 'active' : ''}" onclick="changeMainImage('${img}', this)">
+            <img src="${img}" alt="Thumbnail ${i}">
+          </div>
+        `).join('');
+
+        // Specifications
+        const specsTable = document.getElementById("details-specs-table");
+        const specs = activeProduct.specs || {};
+        const specKeys = Object.keys(specs);
+        if (specKeys.length > 0) {
+          specsTable.innerHTML = specKeys.map(k => `
+            <tr>
+              <td>${k}</td>
+              <td>${specs[k]}</td>
+            </tr>
+          `).join('');
+        } else {
+          specsTable.innerHTML = `<tr><td colspan="2">No detailed specifications listed for this product.</td></tr>`;
+        }
+
+        // Reviews load
+        await loadReviews(productId);
+        
+        // Wishlist button state
+        const wButton = document.getElementById("btn-wishlist");
+        const isWishlisted = window.WishlistManager.get().includes(activeProduct.productId);
+        wButton.innerHTML = isWishlisted ? '<i class="fas fa-heart" style="color:var(--danger)"></i>' : '<i class="far fa-heart"></i>';
+
+        wButton.onclick = () => {
+          const added = window.WishlistManager.toggle(activeProduct.productId);
+          wButton.innerHTML = added ? '<i class="fas fa-heart" style="color:var(--danger)"></i>' : '<i class="far fa-heart"></i>';
+        };
+
+        // Cart Actions
+        document.getElementById("btn-add-cart").onclick = () => {
+          const qty = parseInt(document.getElementById("input-qty").value) || 1;
+          window.CartManager.add(activeProduct.productId, qty);
+        };
+
+        document.getElementById("btn-buy-now").onclick = () => {
+          const qty = parseInt(document.getElementById("input-qty").value) || 1;
+          window.CartManager.add(activeProduct.productId, qty);
+          window.location.href = '/checkout/';
+        };
+
+        // Load Related recommendations
+        loadRelatedProducts();
+
+      } catch (err) {
+        document.getElementById("details-loader").innerHTML = `<p style="color:var(--danger); font-size:18px;">Product details could not be loaded. Return to <a href="/shop/" style="color:var(--primary); font-weight:600;">Shop</a>.</p>`;
+      }
+    }
+
+    function changeMainImage(url, thumbElement) {
+      document.getElementById("main-product-img").src = url;
+      document.querySelectorAll(".thumbnail-box").forEach(t => t.classList.remove("active"));
+      thumbElement.classList.add("active");
+    }
+
+    // Handle quantity buttons
+    function initQuantitySelectors() {
+      const qtyInput = document.getElementById("input-qty");
+      document.getElementById("btn-qty-inc").onclick = () => {
+        let val = parseInt(qtyInput.value) || 1;
+        if (activeProduct && val < activeProduct.stock) {
+          qtyInput.value = val + 1;
+        }
+      };
+      document.getElementById("btn-qty-dec").onclick = () => {
+        let val = parseInt(qtyInput.value) || 1;
+        if (val > 1) {
+          qtyInput.value = val - 1;
+        }
+      };
+    }
+
+    // Tabs Controller
+    function initTabControls() {
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          
+          document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("active"));
+          const tabId = btn.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+        });
+      });
+    }
+
+    // Reviews list and submit validation
+    async function loadReviews(productId) {
+      const wrapper = document.getElementById("reviews-list-container");
+      const user = window.NovaAuth.getCurrentUser();
+      
+      if (user) {
+        document.getElementById("add-review-panel").style.display = "block";
+        document.getElementById("login-to-review-panel").style.display = "none";
+      } else {
+        document.getElementById("add-review-panel").style.display = "none";
+        document.getElementById("login-to-review-panel").style.display = "block";
+      }
+
+      try {
+        const reviews = await window.NovaDB.getReviews(productId);
+        
+        // Update rating indicators
+        document.getElementById("tab-reviews-count").textContent = reviews.length;
+        document.getElementById("details-rating-count").textContent = `(${reviews.length} Customer Reviews)`;
+        
+        // Update stars wrap
+        const avg = activeProduct.rating || 5.0;
+        const fullStars = Math.floor(avg);
+        const halfStar = avg % 1 >= 0.5 ? 1 : 0;
+        const emptyStars = 5 - fullStars - halfStar;
+        document.getElementById("details-stars-wrap").innerHTML = 
+          '<i class="fas fa-star" style="color:var(--warning)"></i>'.repeat(fullStars) +
+          (halfStar ? '<i class="fas fa-star-half-alt" style="color:var(--warning)"></i>' : '') +
+          '<i class="far fa-star" style="color:var(--warning)"></i>'.repeat(emptyStars) +
+          ` <span style="font-weight:700; margin-left: 5px;">${avg.toFixed(1)}</span>`;
+
+        if (reviews.length === 0) {
+          wrapper.innerHTML = '<p style="color:var(--slate-500); padding: 20px 0;">No reviews yet. Be the first to review this product!</p>';
+          return;
+        }
+
+        wrapper.innerHTML = reviews.map(r => {
+          const stars = '<i class="fas fa-star" style="color:var(--warning)"></i>'.repeat(r.rating) +
+                        '<i class="far fa-star" style="color:var(--slate-300)"></i>'.repeat(5 - r.rating);
+          
+          const dt = new Date(r.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          
+          // Delete button for user's own review
+          const isOwnReview = user && r.userId === user.uid;
+          const deleteBtn = isOwnReview 
+            ? `<button onclick="deleteReviewClick('${r.reviewId}')" style="color:var(--danger); font-size:13px; font-weight:600; cursor:pointer;"><i class="fas fa-trash-alt"></i> Delete</button>`
+            : '';
+
+          return `
+            <div class="review-item">
+              <div class="review-item-header">
+                <div class="review-user">
+                  <img src="${r.userPhoto || '/static/images/placeholder.svg'}" alt="${r.userName}">
+                  <div>
+                    <div class="review-user-name">${r.userName}</div>
+                    <div style="font-size:12px; color:var(--slate-400);">${dt}</div>
+                  </div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size:13px; margin-bottom:4px;">${stars}</div>
+                  ${deleteBtn}
+                </div>
+              </div>
+              <p style="font-size:14px; color:var(--slate-600); margin-left:44px;">${r.comment}</p>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        wrapper.innerHTML = '<p style="color:var(--danger);">Error loading reviews.</p>';
+      }
+    }
+
+    // Clicks on rating stars inside review form
+    function initReviewStars() {
+      const stars = document.querySelectorAll("#review-stars-selector i");
+      stars.forEach(s => {
+        s.addEventListener("click", () => {
+          selectedRating = parseInt(s.getAttribute("data-rating"));
+          stars.forEach(st => {
+            const rating = parseInt(st.getAttribute("data-rating"));
+            if (rating <= selectedRating) {
+              st.className = "fas fa-star active";
+            } else {
+              st.className = "far fa-star";
+            }
+          });
+        });
+      });
+
+      // Submit Review click
+      document.getElementById("btn-submit-review").onclick = async () => {
+        const commentInput = document.getElementById("review-comment");
+        const comment = commentInput.value.trim();
+        
+        if (selectedRating === 0) {
+          window.showToast("Please choose a star rating first.", "danger");
+          return;
+        }
+        if (!comment) {
+          window.showToast("Please write a review comment.", "danger");
+          return;
+        }
+
+        try {
+          await window.NovaDB.addReview(activeProduct.productId, selectedRating, comment);
+          window.showToast("Review submitted successfully!", "success");
+          commentInput.value = "";
+          selectedRating = 0;
+          stars.forEach(st => st.className = "far fa-star");
+          // Reload Details to update rating and reviews count
+          await loadProductDetails(activeProduct.productId);
+        } catch (err) {
+          window.showToast(err.message, "danger");
+        }
+      };
+    }
+
+    async function deleteReviewClick(reviewId) {
+      if (!confirm("Are you sure you want to delete your review?")) return;
+      try {
+        await window.NovaDB.deleteReview(reviewId);
+        window.showToast("Review deleted", "info");
+        await loadProductDetails(activeProduct.productId);
+      } catch (err) {
+        window.showToast(err.message, "danger");
+      }
+    }
+
+    // AI Product Recommendations Grid loading
+    async function loadRelatedProducts() {
+      const grid = document.getElementById("related-products-grid");
+      try {
+        const recs = await window.NovaDB.getRecommendations();
+        // filter out current product
+        const filteredRecs = recs.filter(r => r.productId !== activeProduct.productId).slice(0, 4);
+
+        if (filteredRecs.length === 0) {
+          document.getElementById("related-wrapper").style.display = "none";
+          return;
+        }
+
+        grid.innerHTML = filteredRecs.map(p => {
+          const discPrice = p.price * (1 - p.discount/100.0);
+          const hasDiscount = p.discount > 0;
+          return `
+            <div class="product-card glass" onclick="window.location.href='/product/${p.productId}/'">
+              <div class="product-image-container">
+                <img src="${p.images[0]}" alt="${p.name}">
+                ${hasDiscount ? `<span class="product-discount-tag">${p.discount}% OFF</span>` : ''}
+              </div>
+              <div class="product-details-content">
+                <span class="product-brand">${p.brand}</span>
+                <span class="product-title" style="height:44px; display:block; overflow:hidden;">${p.name}</span>
+                <div class="product-price-row">
+                  <span class="product-current-price">$${discPrice.toFixed(2)}</span>
+                  ${hasDiscount ? `<span class="product-original-price">$${p.price.toFixed(2)}</span>` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>
