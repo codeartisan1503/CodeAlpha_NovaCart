@@ -1,0 +1,3297 @@
+{
+  "categories": {
+    "electronics": {
+      "categoryId": "electronics",
+      "name": "Electronics",
+      "slug": "electronics",
+      "image": "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500&auto=format&fit=crop"
+    },
+    "fashion": {
+      "categoryId": "fashion",
+      "name": "Fashion",
+      "slug": "fashion",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&auto=format&fit=crop"
+    },
+    "shoes": {
+      "categoryId": "shoes",
+      "name": "Shoes",
+      "slug": "shoes",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"
+    },
+    "watches": {
+      "categoryId": "watches",
+      "name": "Watches",
+      "slug": "watches",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop"
+    },
+    "furniture": {
+      "categoryId": "furniture",
+      "name": "Furniture",
+      "slug": "furniture",
+      "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500&auto=format&fit=crop"
+    },
+    "beauty": {
+      "categoryId": "beauty",
+      "name": "Beauty",
+      "slug": "beauty",
+      "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&auto=format&fit=crop"
+    },
+    "grocery": {
+      "categoryId": "grocery",
+      "name": "Grocery",
+      "slug": "grocery",
+      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop"
+    },
+    "sports": {
+      "categoryId": "sports",
+      "name": "Sports",
+      "slug": "sports",
+      "image": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&auto=format&fit=crop"
+    },
+    "books": {
+      "categoryId": "books",
+      "name": "Books",
+      "slug": "books",
+      "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=500&auto=format&fit=crop"
+    },
+    "decor": {
+      "categoryId": "decor",
+      "name": "Home Decor",
+      "slug": "decor",
+      "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop"
+    }
+  },
+  "coupons": {
+    "WELCOME10": {
+      "code": "WELCOME10",
+      "type": "percentage",
+      "value": 10.0,
+      "minOrder": 50.0,
+      "isActive": true,
+      "expiryDate": "2026-08-02T15:27:45.327840"
+    },
+    "FLASH25": {
+      "code": "FLASH25",
+      "type": "percentage",
+      "value": 25.0,
+      "minOrder": 150.0,
+      "isActive": true,
+      "expiryDate": "2026-07-08T15:27:45.327869"
+    },
+    "FLAT50": {
+      "code": "FLAT50",
+      "type": "flat",
+      "value": 50.0,
+      "minOrder": 300.0,
+      "isActive": true,
+      "expiryDate": "2026-07-18T15:27:45.327875"
+    },
+    "FREESHIP": {
+      "code": "FREESHIP",
+      "type": "flat",
+      "value": 15.0,
+      "minOrder": 100.0,
+      "isActive": true,
+      "expiryDate": "2026-07-13T15:27:45.327879"
+    }
+  },
+  "users": {
+    "admin_uid_xyz": {
+      "uid": "admin_uid_xyz",
+      "email": "admin@novacart.com",
+      "displayName": "NovaCart Admin",
+      "photoURL": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop",
+      "role": "admin",
+      "status": "active",
+      "createdAt": "2026-07-03T15:27:45.332856",
+      "updatedAt": "2026-07-03T15:27:45.332865"
+    },
+    "user_uid_1": {
+      "uid": "user_uid_1",
+      "email": "john.smith@example.com",
+      "displayName": "John Smith",
+      "photoURL": "https://images.unsplash.com/photo-1500000010000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-03-26T15:27:45.334021",
+      "updatedAt": "2026-07-03T15:27:45.334043"
+    },
+    "user_uid_2": {
+      "uid": "user_uid_2",
+      "email": "emily.johnson@example.com",
+      "displayName": "Emily Johnson",
+      "photoURL": "https://images.unsplash.com/photo-1500000020000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-11T15:27:45.335109",
+      "updatedAt": "2026-07-03T15:27:45.335126"
+    },
+    "user_uid_3": {
+      "uid": "user_uid_3",
+      "email": "michael.williams@example.com",
+      "displayName": "Michael Williams",
+      "photoURL": "https://images.unsplash.com/photo-1500000030000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-01T15:27:45.336156",
+      "updatedAt": "2026-07-03T15:27:45.336169"
+    },
+    "user_uid_4": {
+      "uid": "user_uid_4",
+      "email": "sarah.brown@example.com",
+      "displayName": "Sarah Brown",
+      "photoURL": "https://images.unsplash.com/photo-1500000040000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-19T15:27:45.337158",
+      "updatedAt": "2026-07-03T15:27:45.337169"
+    },
+    "user_uid_5": {
+      "uid": "user_uid_5",
+      "email": "david.jones@example.com",
+      "displayName": "David Jones",
+      "photoURL": "https://images.unsplash.com/photo-1500000050000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-04-14T15:27:45.338143",
+      "updatedAt": "2026-07-03T15:27:45.338155"
+    },
+    "user_uid_6": {
+      "uid": "user_uid_6",
+      "email": "jessica.garcia@example.com",
+      "displayName": "Jessica Garcia",
+      "photoURL": "https://images.unsplash.com/photo-1500000060000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-03-31T15:27:45.339156",
+      "updatedAt": "2026-07-03T15:27:45.339167"
+    },
+    "user_uid_7": {
+      "uid": "user_uid_7",
+      "email": "james.miller@example.com",
+      "displayName": "James Miller",
+      "photoURL": "https://images.unsplash.com/photo-1500000070000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-25T15:27:45.340148",
+      "updatedAt": "2026-07-03T15:27:45.340162"
+    },
+    "user_uid_8": {
+      "uid": "user_uid_8",
+      "email": "ashley.davis@example.com",
+      "displayName": "Ashley Davis",
+      "photoURL": "https://images.unsplash.com/photo-1500000080000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-04-04T15:27:45.342265",
+      "updatedAt": "2026-07-03T15:27:45.342301"
+    },
+    "user_uid_9": {
+      "uid": "user_uid_9",
+      "email": "robert.rodriguez@example.com",
+      "displayName": "Robert Rodriguez",
+      "photoURL": "https://images.unsplash.com/photo-1500000090000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-12T15:27:45.344284",
+      "updatedAt": "2026-07-03T15:27:45.344307"
+    },
+    "user_uid_10": {
+      "uid": "user_uid_10",
+      "email": "amanda.martinez@example.com",
+      "displayName": "Amanda Martinez",
+      "photoURL": "https://images.unsplash.com/photo-1500000100000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-04-25T15:27:45.345433",
+      "updatedAt": "2026-07-03T15:27:45.345445"
+    },
+    "user_uid_11": {
+      "uid": "user_uid_11",
+      "email": "william.hernandez@example.com",
+      "displayName": "William Hernandez",
+      "photoURL": "https://images.unsplash.com/photo-1500000110000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-04-29T15:27:45.346454",
+      "updatedAt": "2026-07-03T15:27:45.346464"
+    },
+    "user_uid_12": {
+      "uid": "user_uid_12",
+      "email": "megan.lopez@example.com",
+      "displayName": "Megan Lopez",
+      "photoURL": "https://images.unsplash.com/photo-1500000120000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-26T15:27:45.347412",
+      "updatedAt": "2026-07-03T15:27:45.347422"
+    },
+    "user_uid_13": {
+      "uid": "user_uid_13",
+      "email": "joseph.gonzalez@example.com",
+      "displayName": "Joseph Gonzalez",
+      "photoURL": "https://images.unsplash.com/photo-1500000130000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-03-28T15:27:45.348355",
+      "updatedAt": "2026-07-03T15:27:45.348364"
+    },
+    "user_uid_14": {
+      "uid": "user_uid_14",
+      "email": "elizabeth.wilson@example.com",
+      "displayName": "Elizabeth Wilson",
+      "photoURL": "https://images.unsplash.com/photo-1500000140000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-06-06T15:27:45.349301",
+      "updatedAt": "2026-07-03T15:27:45.349310"
+    },
+    "user_uid_15": {
+      "uid": "user_uid_15",
+      "email": "thomas.anderson@example.com",
+      "displayName": "Thomas Anderson",
+      "photoURL": "https://images.unsplash.com/photo-1500000150000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-04-20T15:27:45.350245",
+      "updatedAt": "2026-07-03T15:27:45.350254"
+    },
+    "user_uid_16": {
+      "uid": "user_uid_16",
+      "email": "lauren.thomas@example.com",
+      "displayName": "Lauren Thomas",
+      "photoURL": "https://images.unsplash.com/photo-1500000160000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-06-17T15:27:45.351158",
+      "updatedAt": "2026-07-03T15:27:45.351167"
+    },
+    "user_uid_17": {
+      "uid": "user_uid_17",
+      "email": "charles.taylor@example.com",
+      "displayName": "Charles Taylor",
+      "photoURL": "https://images.unsplash.com/photo-1500000170000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-07T15:27:45.352065",
+      "updatedAt": "2026-07-03T15:27:45.352074"
+    },
+    "user_uid_18": {
+      "uid": "user_uid_18",
+      "email": "stephanie.moore@example.com",
+      "displayName": "Stephanie Moore",
+      "photoURL": "https://images.unsplash.com/photo-1500000180000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-04-20T15:27:45.352985",
+      "updatedAt": "2026-07-03T15:27:45.352994"
+    },
+    "user_uid_19": {
+      "uid": "user_uid_19",
+      "email": "daniel.jackson@example.com",
+      "displayName": "Daniel Jackson",
+      "photoURL": "https://images.unsplash.com/photo-1500000190000?w=150&auto=format&fit=crop",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-05-30T15:27:45.353963",
+      "updatedAt": "2026-07-03T15:27:45.353972"
+    }
+  },
+  "products": {
+    "prod_001": {
+      "productId": "prod_001",
+      "name": "iPhone 15 Pro",
+      "category": "electronics",
+      "price": 999.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Apple",
+      "rating": 4.8,
+      "reviewCount": 34,
+      "stock": 5,
+      "specs": {
+        "Screen": "6.1 inches OLED",
+        "Camera": "48MP Triple",
+        "Processor": "A17 Pro",
+        "Battery": "3274 mAh"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-12T15:27:45.355058"
+    },
+    "prod_002": {
+      "productId": "prod_002",
+      "name": "Samsung Galaxy S24 Ultra",
+      "category": "electronics",
+      "price": 1299.0,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Samsung",
+      "rating": 4.8,
+      "reviewCount": 41,
+      "stock": 10,
+      "specs": {
+        "Screen": "6.8 inches QHD+",
+        "Camera": "200MP Quad",
+        "Processor": "Snapdragon 8 Gen 3",
+        "Battery": "5000 mAh"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-02T15:27:45.356173"
+    },
+    "prod_003": {
+      "productId": "prod_003",
+      "name": "MacBook Air M3",
+      "category": "electronics",
+      "price": 1099.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Apple",
+      "rating": 4.8,
+      "reviewCount": 24,
+      "stock": 0,
+      "specs": {
+        "RAM": "8GB Unified",
+        "Storage": "256GB SSD",
+        "Processor": "Apple M3 Chip",
+        "Screen": "13.6 Liquid Retina"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-08T15:27:45.357807"
+    },
+    "prod_004": {
+      "productId": "prod_004",
+      "name": "Sony WH-1000XM5 Headphones",
+      "category": "electronics",
+      "price": 399.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Sony",
+      "rating": 4.8,
+      "reviewCount": 16,
+      "stock": 12,
+      "specs": {
+        "Type": "Over-Ear Wireless",
+        "Battery": "30 Hours",
+        "ANC": "Industry Leading",
+        "Weight": "250g"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": {
+        "discount": 20,
+        "endsAt": "2026-07-03T21:27:45.359963"
+      },
+      "createdAt": "2026-06-02T15:27:45.359982"
+    },
+    "prod_005": {
+      "productId": "prod_005",
+      "name": "iPad Pro 11-inch",
+      "category": "electronics",
+      "price": 799.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Apple",
+      "rating": 4.4,
+      "reviewCount": 6,
+      "stock": 15,
+      "specs": {
+        "Screen": "11 Liquid Retina",
+        "Processor": "M2 Chip",
+        "Storage": "128GB",
+        "Weight": "466g"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-05-31T15:27:45.361734"
+    },
+    "prod_006": {
+      "productId": "prod_006",
+      "name": "Dell XPS 13 Gaming Laptop",
+      "category": "electronics",
+      "price": 1399.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Dell",
+      "rating": 4.7,
+      "reviewCount": 33,
+      "stock": 8,
+      "specs": {
+        "CPU": "Intel i7-13th Gen",
+        "RAM": "16GB",
+        "GPU": "Intel Iris Xe",
+        "Storage": "512GB SSD"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-02T15:27:45.363048"
+    },
+    "prod_007": {
+      "productId": "prod_007",
+      "name": "Logitech MX Master 3S Mouse",
+      "category": "electronics",
+      "price": 99.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Logitech",
+      "rating": 4.3,
+      "reviewCount": 42,
+      "stock": 30,
+      "specs": {
+        "Sensor": "8K DPI Track-anywhere",
+        "Battery": "Rechargeable",
+        "Buttons": "7 Programmable"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-08T15:27:45.364291"
+    },
+    "prod_008": {
+      "productId": "prod_008",
+      "name": "Levis 511 Slim Jeans",
+      "category": "fashion",
+      "price": 69.5,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Levis",
+      "rating": 4.7,
+      "reviewCount": 42,
+      "stock": 15,
+      "specs": {
+        "Material": "99% Cotton, 1% Elastane",
+        "Fit": "Slim Fit",
+        "Color": "Dark Indigo"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-07-01T15:27:45.368140"
+    },
+    "prod_009": {
+      "productId": "prod_009",
+      "name": "Polo Ralph Lauren T-Shirt",
+      "category": "fashion",
+      "price": 45.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Ralph Lauren",
+      "rating": 4.7,
+      "reviewCount": 22,
+      "stock": 0,
+      "specs": {
+        "Material": "100% Pima Cotton",
+        "Fit": "Custom Slim",
+        "Neckline": "Crew Neck"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-27T15:27:45.369591"
+    },
+    "prod_010": {
+      "productId": "prod_010",
+      "name": "Zara Wool Blend Coat",
+      "category": "fashion",
+      "price": 189.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Zara",
+      "rating": 4.2,
+      "reviewCount": 13,
+      "stock": 8,
+      "specs": {
+        "Material": "60% Wool, 40% Polyester",
+        "Color": "Camel",
+        "Length": "Mid-length"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-06-30T15:27:45.370944"
+    },
+    "prod_011": {
+      "productId": "prod_011",
+      "name": "H&M Knitted Sweater",
+      "category": "fashion",
+      "price": 34.99,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1574164904299-3a102b110380?w=500&auto=format&fit=crop"
+      ],
+      "brand": "H&M",
+      "rating": 4.4,
+      "reviewCount": 45,
+      "stock": 25,
+      "specs": {
+        "Material": "Acrylic & Wool Mix",
+        "Neckline": "Turtleneck",
+        "Color": "Off-White"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-25T15:27:45.372288"
+    },
+    "prod_012": {
+      "productId": "prod_012",
+      "name": "Nike Windrunner Jacket",
+      "category": "fashion",
+      "price": 110.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Nike",
+      "rating": 4.2,
+      "reviewCount": 31,
+      "stock": 15,
+      "specs": {
+        "Material": "100% Polyester",
+        "Type": "Windbreaker",
+        "Color": "Black/White"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-06-28T15:27:45.373633"
+    },
+    "prod_013": {
+      "productId": "prod_013",
+      "name": "Nike Air Max 270",
+      "category": "shoes",
+      "price": 160.0,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Nike",
+      "rating": 4.8,
+      "reviewCount": 7,
+      "stock": 12,
+      "specs": {
+        "Type": "Running",
+        "Sole": "Max Air Unit",
+        "Upper": "Mesh",
+        "Weight": "290g"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": {
+        "discount": 20,
+        "endsAt": "2026-07-03T21:27:45.375658"
+      },
+      "createdAt": "2026-06-18T15:27:45.375673"
+    },
+    "prod_014": {
+      "productId": "prod_014",
+      "name": "Adidas Ultraboost Light",
+      "category": "shoes",
+      "price": 190.0,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Adidas",
+      "rating": 4.8,
+      "reviewCount": 37,
+      "stock": 8,
+      "specs": {
+        "Type": "Running/Lifestyle",
+        "Midsole": "Boost Light",
+        "Upper": "Primeknit"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-05-26T15:27:45.377770"
+    },
+    "prod_015": {
+      "productId": "prod_015",
+      "name": "Converse Chuck Taylor All Star",
+      "category": "shoes",
+      "price": 65.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Converse",
+      "rating": 4.0,
+      "reviewCount": 29,
+      "stock": 40,
+      "specs": {
+        "Type": "Casual High Top",
+        "Upper": "Canvas",
+        "Sole": "Vulcanized Rubber"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-27T15:27:45.379483"
+    },
+    "prod_016": {
+      "productId": "prod_016",
+      "name": "Dr. Martens 1460 Leather Boots",
+      "category": "shoes",
+      "price": 170.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Dr. Martens",
+      "rating": 4.1,
+      "reviewCount": 39,
+      "stock": 14,
+      "specs": {
+        "Type": "8-Eyelet Boot",
+        "Leather": "Smooth Bovine",
+        "Sole": "AirWair Cushioning"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-06-05T15:27:45.381057"
+    },
+    "prod_017": {
+      "productId": "prod_017",
+      "name": "Puma Suede Classic",
+      "category": "shoes",
+      "price": 75.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1539185441755-769473a23570?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Puma",
+      "rating": 4.6,
+      "reviewCount": 22,
+      "stock": 20,
+      "specs": {
+        "Type": "Casual Retro",
+        "Upper": "Premium Suede",
+        "Sole": "Rubber Grid"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-07T15:27:45.382595"
+    },
+    "prod_018": {
+      "productId": "prod_018",
+      "name": "Apple Watch Series 9",
+      "category": "watches",
+      "price": 399.0,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1543512214-318c7553f230?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Apple",
+      "rating": 4.9,
+      "reviewCount": 30,
+      "stock": 8,
+      "specs": {
+        "Screen": "Always-On Retina",
+        "Sensors": "ECG, Temp, Blood Oxygen",
+        "Battery": "18 Hours"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-04T15:27:45.384092"
+    },
+    "prod_019": {
+      "productId": "prod_019",
+      "name": "Fossil Gen 6 Smartwatch",
+      "category": "watches",
+      "price": 229.0,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Fossil",
+      "rating": 4.3,
+      "reviewCount": 21,
+      "stock": 12,
+      "specs": {
+        "OS": "Wear OS by Google",
+        "Case Size": "44mm",
+        "Processor": "Snapdragon Wear 4100+"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-21T15:27:45.385618"
+    },
+    "prod_020": {
+      "productId": "prod_020",
+      "name": "Casio G-Shock Classic",
+      "category": "watches",
+      "price": 99.0,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Casio",
+      "rating": 4.5,
+      "reviewCount": 29,
+      "stock": 50,
+      "specs": {
+        "Resistances": "200M Water/Shock",
+        "Functions": "Stopwatch, Alarm",
+        "Battery life": "7 Years"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-09T15:27:45.387119"
+    },
+    "prod_021": {
+      "productId": "prod_021",
+      "name": "Seiko Presage Automatic",
+      "category": "watches",
+      "price": 450.0,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Seiko",
+      "rating": 4.3,
+      "reviewCount": 17,
+      "stock": 6,
+      "specs": {
+        "Movement": "4R35 Automatic",
+        "Jewels": "23",
+        "Dial": "Sunburst Blue"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-30T15:27:45.388652"
+    },
+    "prod_022": {
+      "productId": "prod_022",
+      "name": "Mid-Century Velvet Sofa",
+      "category": "furniture",
+      "price": 899.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&auto=format&fit=crop"
+      ],
+      "brand": "NovaHome",
+      "rating": 4.8,
+      "reviewCount": 21,
+      "stock": 4,
+      "specs": {
+        "Seating Capacity": "3 Seater",
+        "Fabric": "Premium Velvet",
+        "Legs": "Solid Eucalyptus"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-07-02T15:27:45.390449"
+    },
+    "prod_023": {
+      "productId": "prod_023",
+      "name": "Minimalist Wooden Coffee Table",
+      "category": "furniture",
+      "price": 149.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=500&auto=format&fit=crop"
+      ],
+      "brand": "NovaHome",
+      "rating": 4.5,
+      "reviewCount": 18,
+      "stock": 10,
+      "specs": {
+        "Material": "Solid Oak Wood",
+        "Dimensions": "40\"W x 22\"D x 16\"H",
+        "Shape": "Rectangular"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-06-04T15:27:45.393706"
+    },
+    "prod_024": {
+      "productId": "prod_024",
+      "name": "Ergonomic Mesh Office Chair",
+      "category": "furniture",
+      "price": 249.0,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Herman Miller",
+      "rating": 4.4,
+      "reviewCount": 24,
+      "stock": 15,
+      "specs": {
+        "Support": "Adjustable Lumbar/3D Armrests",
+        "Base": "Nylon Castors",
+        "Mesh": "Breathable Elastomer"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-23T15:27:45.396083"
+    },
+    "prod_025": {
+      "productId": "prod_025",
+      "name": "Modern Lounge Armchair",
+      "category": "furniture",
+      "price": 320.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop"
+      ],
+      "brand": "IKEA",
+      "rating": 4.2,
+      "reviewCount": 28,
+      "stock": 5,
+      "specs": {
+        "Frame": "Molded Plywood",
+        "Cushions": "High-resiliency foam",
+        "Cover": "Genuine Leather"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-15T15:27:45.397962"
+    },
+    "prod_026": {
+      "productId": "prod_026",
+      "name": "Est\u00e9e Lauder Advanced Night Repair",
+      "category": "beauty",
+      "price": 85.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Est\u00e9e Lauder",
+      "rating": 4.8,
+      "reviewCount": 14,
+      "stock": 30,
+      "specs": {
+        "Volume": "50ml",
+        "Skin Type": "All Skins",
+        "Purpose": "Anti-Aging Serum"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-28T15:27:45.399877"
+    },
+    "prod_027": {
+      "productId": "prod_027",
+      "name": "Dior Sauvage Eau de Parfum",
+      "category": "beauty",
+      "price": 145.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Dior",
+      "rating": 4.5,
+      "reviewCount": 16,
+      "stock": 20,
+      "specs": {
+        "Volume": "100ml",
+        "Notes": "Bergamot, Sichuan Pepper, Ambroxan",
+        "Type": "EDP Spray"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": {
+        "discount": 20,
+        "endsAt": "2026-07-03T21:27:45.401783"
+      },
+      "createdAt": "2026-05-26T15:27:45.401793"
+    },
+    "prod_028": {
+      "productId": "prod_028",
+      "name": "MAC Matte Lipstick (Ruby Woo)",
+      "category": "beauty",
+      "price": 23.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop"
+      ],
+      "brand": "MAC",
+      "rating": 4.5,
+      "reviewCount": 31,
+      "stock": 100,
+      "specs": {
+        "Finish": "Retro Matte",
+        "Color": "Vivid Blue-Red",
+        "Weight": "3g"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-13T15:27:45.403723"
+    },
+    "prod_029": {
+      "productId": "prod_029",
+      "name": "CeraVe Hydrating Facial Cleanser",
+      "category": "beauty",
+      "price": 16.99,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop"
+      ],
+      "brand": "CeraVe",
+      "rating": 4.2,
+      "reviewCount": 20,
+      "stock": 60,
+      "specs": {
+        "Volume": "16 oz",
+        "Ingredients": "Ceramides, Hyaluronic Acid",
+        "Skin Type": "Normal to Dry"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-26T15:27:45.405509"
+    },
+    "prod_030": {
+      "productId": "prod_030",
+      "name": "Organic Matcha Green Tea Powder",
+      "category": "grocery",
+      "price": 24.99,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=500&auto=format&fit=crop"
+      ],
+      "brand": "EcoHerb",
+      "rating": 4.2,
+      "reviewCount": 30,
+      "stock": 45,
+      "specs": {
+        "Weight": "100g",
+        "Origin": "Uji, Japan",
+        "Grade": "Ceremonial Grade"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-23T15:27:45.408869"
+    },
+    "prod_031": {
+      "productId": "prod_031",
+      "name": "Extra Virgin Olive Oil (Cold Pressed)",
+      "category": "grocery",
+      "price": 18.5,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Tuscany Gold",
+      "rating": 4.0,
+      "reviewCount": 15,
+      "stock": 40,
+      "specs": {
+        "Volume": "500ml",
+        "Acidity": "< 0.3%",
+        "Type": "Cold Pressed"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-05T15:27:45.411473"
+    },
+    "prod_032": {
+      "productId": "prod_032",
+      "name": "Premium Raw Manuka Honey (MGO 400+)",
+      "category": "grocery",
+      "price": 42.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Kiva",
+      "rating": 4.5,
+      "reviewCount": 30,
+      "stock": 25,
+      "specs": {
+        "Weight": "250g",
+        "MGO Rating": "400+",
+        "Origin": "New Zealand"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-28T15:27:45.413686"
+    },
+    "prod_033": {
+      "productId": "prod_033",
+      "name": "Single Origin Colombian Coffee Beans",
+      "category": "grocery",
+      "price": 14.99,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Roasters Pride",
+      "rating": 4.9,
+      "reviewCount": 38,
+      "stock": 50,
+      "specs": {
+        "Weight": "1 lb",
+        "Roast Level": "Medium Roast",
+        "Flavors": "Caramel, Citrus"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-13T15:27:45.415767"
+    },
+    "prod_034": {
+      "productId": "prod_034",
+      "name": "Wilson NFL Duke Official Football",
+      "category": "sports",
+      "price": 120.0,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Wilson",
+      "rating": 4.0,
+      "reviewCount": 24,
+      "stock": 10,
+      "specs": {
+        "Material": "Genuine Leather",
+        "Size": "Official Pro Size"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-07-02T15:27:45.417853"
+    },
+    "prod_035": {
+      "productId": "prod_035",
+      "name": "Fitbit Charge 6 Fitness Tracker",
+      "category": "sports",
+      "price": 159.95,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Fitbit",
+      "rating": 4.2,
+      "reviewCount": 35,
+      "stock": 15,
+      "specs": {
+        "Sensors": "Heart Rate, GPS, EDA Scan",
+        "Battery Life": "7 Days"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-15T15:27:45.419992"
+    },
+    "prod_036": {
+      "productId": "prod_036",
+      "name": "Spalding NBA Zi/O Basketball",
+      "category": "sports",
+      "price": 44.99,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Spalding",
+      "rating": 4.3,
+      "reviewCount": 34,
+      "stock": 25,
+      "specs": {
+        "Size": "Official 29.5\"",
+        "Material": "Composite Leather",
+        "Use": "Indoor/Outdoor"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-28T15:27:45.422087"
+    },
+    "prod_037": {
+      "productId": "prod_037",
+      "name": "Titleist Pro V1 Golf Balls (Dozen)",
+      "category": "sports",
+      "price": 55.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Titleist",
+      "rating": 4.5,
+      "reviewCount": 43,
+      "stock": 50,
+      "specs": {
+        "Quantity": "12 Pack",
+        "Layer Count": "3-Piece Design",
+        "Core": "2.0 ZG Process"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-24T15:27:45.425231"
+    },
+    "prod_038": {
+      "productId": "prod_038",
+      "name": "Atomic Habits by James Clear",
+      "category": "books",
+      "price": 16.2,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Penguin",
+      "rating": 4.2,
+      "reviewCount": 11,
+      "stock": 80,
+      "specs": {
+        "Format": "Hardcover",
+        "Pages": "320",
+        "Genre": "Self-Help"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-22T15:27:45.428347"
+    },
+    "prod_039": {
+      "productId": "prod_039",
+      "name": "The Creative Act by Rick Rubin",
+      "category": "books",
+      "price": 21.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Penguin Press",
+      "rating": 4.5,
+      "reviewCount": 6,
+      "stock": 45,
+      "specs": {
+        "Format": "Hardcover",
+        "Pages": "432",
+        "Genre": "Art & Philosophy"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-01T15:27:45.430830"
+    },
+    "prod_040": {
+      "productId": "prod_040",
+      "name": "Dune Deluxe Edition by Frank Herbert",
+      "category": "books",
+      "price": 32.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Ace Books",
+      "rating": 4.3,
+      "reviewCount": 33,
+      "stock": 30,
+      "specs": {
+        "Format": "Deluxe Hardcover",
+        "Pages": "688",
+        "Genre": "Sci-Fi"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-06-25T15:27:45.433307"
+    },
+    "prod_041": {
+      "productId": "prod_041",
+      "name": "Thinking, Fast and Slow by Kahneman",
+      "category": "books",
+      "price": 18.0,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Farrar Straus",
+      "rating": 4.8,
+      "reviewCount": 23,
+      "stock": 60,
+      "specs": {
+        "Format": "Paperback",
+        "Pages": "499",
+        "Genre": "Psychology/Economics"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-29T15:27:45.435674"
+    },
+    "prod_042": {
+      "productId": "prod_042",
+      "name": "Minimalist Ceramic Vases (Set of 3)",
+      "category": "decor",
+      "price": 39.99,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=500&auto=format&fit=crop"
+      ],
+      "brand": "NovaHome",
+      "rating": 4.5,
+      "reviewCount": 45,
+      "stock": 25,
+      "specs": {
+        "Material": "Matte Glazed Ceramic",
+        "Quantity": "3 Vases",
+        "Color": "Earth Tones"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-03T15:27:45.437959"
+    },
+    "prod_043": {
+      "productId": "prod_043",
+      "name": "Soft Textured Throw Blanket",
+      "category": "decor",
+      "price": 48.0,
+      "discount": 10,
+      "images": [
+        "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=500&auto=format&fit=crop"
+      ],
+      "brand": "NovaHome",
+      "rating": 4.5,
+      "reviewCount": 15,
+      "stock": 35,
+      "specs": {
+        "Material": "Chenille Yarn",
+        "Dimensions": "50\" x 60\"",
+        "Wash": "Machine Washable"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-24T15:27:45.440859"
+    },
+    "prod_044": {
+      "productId": "prod_044",
+      "name": "Smart LED Table Lamp (RGB)",
+      "category": "decor",
+      "price": 59.99,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Xiaomi",
+      "rating": 4.6,
+      "reviewCount": 16,
+      "stock": 20,
+      "specs": {
+        "Connectivity": "Wi-Fi & Bluetooth",
+        "Compatibility": "Alexa & Google Assistant",
+        "Lumen": "400 lm"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-18T15:27:45.444409"
+    },
+    "prod_045": {
+      "productId": "prod_045",
+      "name": "Aromatic Scented Candle (Lavender)",
+      "category": "decor",
+      "price": 18.5,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&auto=format&fit=crop"
+      ],
+      "brand": "NovaHome",
+      "rating": 4.8,
+      "reviewCount": 39,
+      "stock": 100,
+      "specs": {
+        "Wax Type": "100% Soy Wax",
+        "Burn Time": "50 Hours",
+        "Weight": "8 oz"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-25T15:27:45.447161"
+    },
+    "prod_046": {
+      "productId": "prod_046",
+      "name": "Polo Ralph Lauren T-Shirt Special Edition 45",
+      "category": "fashion",
+      "price": 49.5,
+      "discount": 15,
+      "images": [
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Ralph Lauren",
+      "rating": 4.9,
+      "reviewCount": 28,
+      "stock": 12,
+      "specs": {
+        "Material": "100% Pima Cotton",
+        "Fit": "Custom Slim",
+        "Neckline": "Crew Neck"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": true,
+      "flashSale": null,
+      "createdAt": "2026-06-27T15:27:45.449658"
+    },
+    "prod_047": {
+      "productId": "prod_047",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 46",
+      "category": "electronics",
+      "price": 1259.1,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Dell",
+      "rating": 4.4,
+      "reviewCount": 36,
+      "stock": 30,
+      "specs": {
+        "CPU": "Intel i7-13th Gen",
+        "RAM": "16GB",
+        "GPU": "Intel Iris Xe",
+        "Storage": "512GB SSD"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-30T15:27:45.452059"
+    },
+    "prod_048": {
+      "productId": "prod_048",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 47",
+      "category": "electronics",
+      "price": 1399.0,
+      "discount": 0,
+      "images": [
+        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Dell",
+      "rating": 4.0,
+      "reviewCount": 12,
+      "stock": 24,
+      "specs": {
+        "CPU": "Intel i7-13th Gen",
+        "RAM": "16GB",
+        "GPU": "Intel Iris Xe",
+        "Storage": "512GB SSD"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-28T15:27:45.454396"
+    },
+    "prod_049": {
+      "productId": "prod_049",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 48",
+      "category": "electronics",
+      "price": 1259.1,
+      "discount": 20,
+      "images": [
+        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Dell",
+      "rating": 4.6,
+      "reviewCount": 17,
+      "stock": 29,
+      "specs": {
+        "CPU": "Intel i7-13th Gen",
+        "RAM": "16GB",
+        "GPU": "Intel Iris Xe",
+        "Storage": "512GB SSD"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-06-20T15:27:45.457231"
+    },
+    "prod_050": {
+      "productId": "prod_050",
+      "name": "Sony WH-1000XM5 Headphones Special Edition 49",
+      "category": "electronics",
+      "price": 399.0,
+      "discount": 25,
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop"
+      ],
+      "brand": "Sony",
+      "rating": 4.2,
+      "reviewCount": 14,
+      "stock": 36,
+      "specs": {
+        "Type": "Over-Ear Wireless",
+        "Battery": "30 Hours",
+        "ANC": "Industry Leading",
+        "Weight": "250g"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isLatest": false,
+      "flashSale": null,
+      "createdAt": "2026-05-29T15:27:45.461171"
+    }
+  },
+  "reviews": {
+    "rev_001": {
+      "reviewId": "rev_001",
+      "productId": "prod_037",
+      "userId": "user_uid_13",
+      "userName": "Joseph Gonzalez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000130000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-06-25T15:27:45.463872"
+    },
+    "rev_002": {
+      "reviewId": "rev_002",
+      "productId": "prod_021",
+      "userId": "user_uid_16",
+      "userName": "Lauren Thomas",
+      "userPhoto": "https://images.unsplash.com/photo-1500000160000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-06-22T15:27:45.466360"
+    },
+    "rev_003": {
+      "reviewId": "rev_003",
+      "productId": "prod_004",
+      "userId": "user_uid_18",
+      "userName": "Stephanie Moore",
+      "userPhoto": "https://images.unsplash.com/photo-1500000180000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Perfect purchase! Will buy again for sure.",
+      "createdAt": "2026-06-28T15:27:45.468803"
+    },
+    "rev_004": {
+      "reviewId": "rev_004",
+      "productId": "prod_014",
+      "userId": "user_uid_3",
+      "userName": "Michael Williams",
+      "userPhoto": "https://images.unsplash.com/photo-1500000030000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-20T15:27:45.471193"
+    },
+    "rev_005": {
+      "reviewId": "rev_005",
+      "productId": "prod_031",
+      "userId": "admin_uid_xyz",
+      "userName": "NovaCart Admin",
+      "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Really good value for money. Very satisfied with the purchase.",
+      "createdAt": "2026-06-30T15:27:45.475033"
+    },
+    "rev_006": {
+      "reviewId": "rev_006",
+      "productId": "prod_008",
+      "userId": "user_uid_1",
+      "userName": "John Smith",
+      "userPhoto": "https://images.unsplash.com/photo-1500000010000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Perfect purchase! Will buy again for sure.",
+      "createdAt": "2026-06-20T15:27:45.479587"
+    },
+    "rev_007": {
+      "reviewId": "rev_007",
+      "productId": "prod_042",
+      "userId": "user_uid_5",
+      "userName": "David Jones",
+      "userPhoto": "https://images.unsplash.com/photo-1500000050000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-07-01T15:27:45.482661"
+    },
+    "rev_008": {
+      "reviewId": "rev_008",
+      "productId": "prod_037",
+      "userId": "user_uid_4",
+      "userName": "Sarah Brown",
+      "userPhoto": "https://images.unsplash.com/photo-1500000040000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-06-28T15:27:45.485413"
+    },
+    "rev_009": {
+      "reviewId": "rev_009",
+      "productId": "prod_020",
+      "userId": "user_uid_19",
+      "userName": "Daniel Jackson",
+      "userPhoto": "https://images.unsplash.com/photo-1500000190000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-06-19T15:27:45.488123"
+    },
+    "rev_010": {
+      "reviewId": "rev_010",
+      "productId": "prod_047",
+      "userId": "user_uid_13",
+      "userName": "Joseph Gonzalez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000130000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-25T15:27:45.492690"
+    },
+    "rev_011": {
+      "reviewId": "rev_011",
+      "productId": "prod_027",
+      "userId": "user_uid_19",
+      "userName": "Daniel Jackson",
+      "userPhoto": "https://images.unsplash.com/photo-1500000190000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-06-24T15:27:45.496488"
+    },
+    "rev_012": {
+      "reviewId": "rev_012",
+      "productId": "prod_028",
+      "userId": "user_uid_15",
+      "userName": "Thomas Anderson",
+      "userPhoto": "https://images.unsplash.com/photo-1500000150000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-06-26T15:27:45.499439"
+    },
+    "rev_013": {
+      "reviewId": "rev_013",
+      "productId": "prod_023",
+      "userId": "user_uid_2",
+      "userName": "Emily Johnson",
+      "userPhoto": "https://images.unsplash.com/photo-1500000020000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-19T15:27:45.502259"
+    },
+    "rev_014": {
+      "reviewId": "rev_014",
+      "productId": "prod_011",
+      "userId": "user_uid_4",
+      "userName": "Sarah Brown",
+      "userPhoto": "https://images.unsplash.com/photo-1500000040000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-07-02T15:27:45.505040"
+    },
+    "rev_015": {
+      "reviewId": "rev_015",
+      "productId": "prod_029",
+      "userId": "user_uid_11",
+      "userName": "William Hernandez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000110000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-22T15:27:45.508752"
+    },
+    "rev_016": {
+      "reviewId": "rev_016",
+      "productId": "prod_042",
+      "userId": "user_uid_8",
+      "userName": "Ashley Davis",
+      "userPhoto": "https://images.unsplash.com/photo-1500000080000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-06-23T15:27:45.513444"
+    },
+    "rev_017": {
+      "reviewId": "rev_017",
+      "productId": "prod_011",
+      "userId": "user_uid_11",
+      "userName": "William Hernandez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000110000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-06-27T15:27:45.516661"
+    },
+    "rev_018": {
+      "reviewId": "rev_018",
+      "productId": "prod_030",
+      "userId": "user_uid_9",
+      "userName": "Robert Rodriguez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000090000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-07-01T15:27:45.519486"
+    },
+    "rev_019": {
+      "reviewId": "rev_019",
+      "productId": "prod_027",
+      "userId": "user_uid_5",
+      "userName": "David Jones",
+      "userPhoto": "https://images.unsplash.com/photo-1500000050000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-06-28T15:27:45.522183"
+    },
+    "rev_020": {
+      "reviewId": "rev_020",
+      "productId": "prod_033",
+      "userId": "admin_uid_xyz",
+      "userName": "NovaCart Admin",
+      "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-06-24T15:27:45.525695"
+    },
+    "rev_021": {
+      "reviewId": "rev_021",
+      "productId": "prod_021",
+      "userId": "user_uid_7",
+      "userName": "James Miller",
+      "userPhoto": "https://images.unsplash.com/photo-1500000070000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-06-25T15:27:45.531289"
+    },
+    "rev_022": {
+      "reviewId": "rev_022",
+      "productId": "prod_008",
+      "userId": "admin_uid_xyz",
+      "userName": "NovaCart Admin",
+      "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Decent product, does what it says. Shipping took a little longer though.",
+      "createdAt": "2026-06-21T15:27:45.534224"
+    },
+    "rev_023": {
+      "reviewId": "rev_023",
+      "productId": "prod_011",
+      "userId": "user_uid_17",
+      "userName": "Charles Taylor",
+      "userPhoto": "https://images.unsplash.com/photo-1500000170000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-06-27T15:27:45.537088"
+    },
+    "rev_024": {
+      "reviewId": "rev_024",
+      "productId": "prod_033",
+      "userId": "user_uid_6",
+      "userName": "Jessica Garcia",
+      "userPhoto": "https://images.unsplash.com/photo-1500000060000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-07-02T15:27:45.539830"
+    },
+    "rev_025": {
+      "reviewId": "rev_025",
+      "productId": "prod_030",
+      "userId": "user_uid_1",
+      "userName": "John Smith",
+      "userPhoto": "https://images.unsplash.com/photo-1500000010000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-06-24T15:27:45.543461"
+    },
+    "rev_026": {
+      "reviewId": "rev_026",
+      "productId": "prod_035",
+      "userId": "user_uid_18",
+      "userName": "Stephanie Moore",
+      "userPhoto": "https://images.unsplash.com/photo-1500000180000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-06-18T15:27:45.547452"
+    },
+    "rev_027": {
+      "reviewId": "rev_027",
+      "productId": "prod_014",
+      "userId": "user_uid_15",
+      "userName": "Thomas Anderson",
+      "userPhoto": "https://images.unsplash.com/photo-1500000150000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-06-23T15:27:45.550514"
+    },
+    "rev_028": {
+      "reviewId": "rev_028",
+      "productId": "prod_024",
+      "userId": "user_uid_3",
+      "userName": "Michael Williams",
+      "userPhoto": "https://images.unsplash.com/photo-1500000030000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Perfect purchase! Will buy again for sure.",
+      "createdAt": "2026-06-18T15:27:45.553387"
+    },
+    "rev_029": {
+      "reviewId": "rev_029",
+      "productId": "prod_024",
+      "userId": "user_uid_18",
+      "userName": "Stephanie Moore",
+      "userPhoto": "https://images.unsplash.com/photo-1500000180000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-27T15:27:45.556265"
+    },
+    "rev_030": {
+      "reviewId": "rev_030",
+      "productId": "prod_036",
+      "userId": "user_uid_1",
+      "userName": "John Smith",
+      "userPhoto": "https://images.unsplash.com/photo-1500000010000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-06-18T15:27:45.559843"
+    },
+    "rev_031": {
+      "reviewId": "rev_031",
+      "productId": "prod_003",
+      "userId": "user_uid_10",
+      "userName": "Amanda Martinez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000100000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-24T15:27:45.563569"
+    },
+    "rev_032": {
+      "reviewId": "rev_032",
+      "productId": "prod_021",
+      "userId": "user_uid_17",
+      "userName": "Charles Taylor",
+      "userPhoto": "https://images.unsplash.com/photo-1500000170000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-06-24T15:27:45.566676"
+    },
+    "rev_033": {
+      "reviewId": "rev_033",
+      "productId": "prod_035",
+      "userId": "user_uid_18",
+      "userName": "Stephanie Moore",
+      "userPhoto": "https://images.unsplash.com/photo-1500000180000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-06-23T15:27:45.569597"
+    },
+    "rev_034": {
+      "reviewId": "rev_034",
+      "productId": "prod_019",
+      "userId": "user_uid_12",
+      "userName": "Megan Lopez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000120000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Perfect purchase! Will buy again for sure.",
+      "createdAt": "2026-06-21T15:27:45.572459"
+    },
+    "rev_035": {
+      "reviewId": "rev_035",
+      "productId": "prod_035",
+      "userId": "user_uid_10",
+      "userName": "Amanda Martinez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000100000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Average quality. Had some minor issues, but customer service was helpful.",
+      "createdAt": "2026-07-01T15:27:45.576665"
+    },
+    "rev_036": {
+      "reviewId": "rev_036",
+      "productId": "prod_003",
+      "userId": "user_uid_10",
+      "userName": "Amanda Martinez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000100000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Really good value for money. Very satisfied with the purchase.",
+      "createdAt": "2026-06-24T15:27:45.580491"
+    },
+    "rev_037": {
+      "reviewId": "rev_037",
+      "productId": "prod_041",
+      "userId": "user_uid_12",
+      "userName": "Megan Lopez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000120000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-21T15:27:45.583572"
+    },
+    "rev_038": {
+      "reviewId": "rev_038",
+      "productId": "prod_037",
+      "userId": "user_uid_4",
+      "userName": "Sarah Brown",
+      "userPhoto": "https://images.unsplash.com/photo-1500000040000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-06-23T15:27:45.586520"
+    },
+    "rev_039": {
+      "reviewId": "rev_039",
+      "productId": "prod_025",
+      "userId": "user_uid_13",
+      "userName": "Joseph Gonzalez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000130000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-06-19T15:27:45.589397"
+    },
+    "rev_040": {
+      "reviewId": "rev_040",
+      "productId": "prod_011",
+      "userId": "user_uid_8",
+      "userName": "Ashley Davis",
+      "userPhoto": "https://images.unsplash.com/photo-1500000080000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Perfect purchase! Will buy again for sure.",
+      "createdAt": "2026-06-19T15:27:45.593531"
+    },
+    "rev_041": {
+      "reviewId": "rev_041",
+      "productId": "prod_004",
+      "userId": "user_uid_16",
+      "userName": "Lauren Thomas",
+      "userPhoto": "https://images.unsplash.com/photo-1500000160000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-30T15:27:45.597792"
+    },
+    "rev_042": {
+      "reviewId": "rev_042",
+      "productId": "prod_024",
+      "userId": "user_uid_1",
+      "userName": "John Smith",
+      "userPhoto": "https://images.unsplash.com/photo-1500000010000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Best in class product. You won't regret buying this!",
+      "createdAt": "2026-07-02T15:27:45.601054"
+    },
+    "rev_043": {
+      "reviewId": "rev_043",
+      "productId": "prod_005",
+      "userId": "user_uid_17",
+      "userName": "Charles Taylor",
+      "userPhoto": "https://images.unsplash.com/photo-1500000170000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Really good value for money. Very satisfied with the purchase.",
+      "createdAt": "2026-07-02T15:27:45.604155"
+    },
+    "rev_044": {
+      "reviewId": "rev_044",
+      "productId": "prod_020",
+      "userId": "user_uid_13",
+      "userName": "Joseph Gonzalez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000130000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Decent product, does what it says. Shipping took a little longer though.",
+      "createdAt": "2026-07-01T15:27:45.608003"
+    },
+    "rev_045": {
+      "reviewId": "rev_045",
+      "productId": "prod_034",
+      "userId": "user_uid_11",
+      "userName": "William Hernandez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000110000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "Absolutely amazing! Build quality is top notch and it works flawlessly.",
+      "createdAt": "2026-06-18T15:27:45.612461"
+    },
+    "rev_046": {
+      "reviewId": "rev_046",
+      "productId": "prod_002",
+      "userId": "user_uid_9",
+      "userName": "Robert Rodriguez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000090000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Really good value for money. Very satisfied with the purchase.",
+      "createdAt": "2026-06-30T15:27:45.615717"
+    },
+    "rev_047": {
+      "reviewId": "rev_047",
+      "productId": "prod_019",
+      "userId": "user_uid_11",
+      "userName": "William Hernandez",
+      "userPhoto": "https://images.unsplash.com/photo-1500000110000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Decent product, does what it says. Shipping took a little longer though.",
+      "createdAt": "2026-07-01T15:27:45.618811"
+    },
+    "rev_048": {
+      "reviewId": "rev_048",
+      "productId": "prod_018",
+      "userId": "user_uid_4",
+      "userName": "Sarah Brown",
+      "userPhoto": "https://images.unsplash.com/photo-1500000040000?w=150&auto=format&fit=crop",
+      "rating": 3,
+      "comment": "Perfect purchase! Will buy again for sure.",
+      "createdAt": "2026-06-24T15:27:45.621804"
+    },
+    "rev_049": {
+      "reviewId": "rev_049",
+      "productId": "prod_047",
+      "userId": "user_uid_7",
+      "userName": "James Miller",
+      "userPhoto": "https://images.unsplash.com/photo-1500000070000?w=150&auto=format&fit=crop",
+      "rating": 4,
+      "comment": "The design is gorgeous. Feels premium in hand.",
+      "createdAt": "2026-07-01T15:27:45.625453"
+    },
+    "rev_050": {
+      "reviewId": "rev_050",
+      "productId": "prod_038",
+      "userId": "user_uid_18",
+      "userName": "Stephanie Moore",
+      "userPhoto": "https://images.unsplash.com/photo-1500000180000?w=150&auto=format&fit=crop",
+      "rating": 5,
+      "comment": "Exceeded my expectations! Highly recommend buying this.",
+      "createdAt": "2026-06-22T15:27:45.630894"
+    }
+  },
+  "orderItems": {
+    "c6f19c0a-81c0-46c0-9434-14c6997fe4a8": {
+      "orderId": "NC-20260703-2156",
+      "productId": "prod_029",
+      "name": "CeraVe Hydrating Facial Cleanser",
+      "price": 14.44,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop"
+    },
+    "fb775f8e-2cd9-4bd5-b471-f9d52cb294a1": {
+      "orderId": "NC-20260703-2156",
+      "productId": "prod_025",
+      "name": "Modern Lounge Armchair",
+      "price": 320.0,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop"
+    },
+    "c275245f-0fb9-4e03-b205-bcfacef6438b": {
+      "orderId": "NC-20260703-8665",
+      "productId": "prod_002",
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": 1104.15,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop"
+    },
+    "a4ac2967-a850-417b-bf63-70931edc685c": {
+      "orderId": "NC-20260703-8665",
+      "productId": "prod_003",
+      "name": "MacBook Air M3",
+      "price": 824.25,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop"
+    },
+    "7f819fe5-d81a-47c8-9a34-6d6ae2ce971d": {
+      "orderId": "NC-20260703-9529",
+      "productId": "prod_005",
+      "name": "iPad Pro 11-inch",
+      "price": 719.1,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&auto=format&fit=crop"
+    },
+    "ed5b57a7-f7eb-4ede-96d5-2d57d3126125": {
+      "orderId": "NC-20260703-4564",
+      "productId": "prod_035",
+      "name": "Fitbit Charge 6 Fitness Tracker",
+      "price": 135.96,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&auto=format&fit=crop"
+    },
+    "7c85ec61-454e-4516-b257-9ed4281d0769": {
+      "orderId": "NC-20260703-4564",
+      "productId": "prod_044",
+      "name": "Smart LED Table Lamp (RGB)",
+      "price": 44.99,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&auto=format&fit=crop"
+    },
+    "3430245d-be45-4f76-b6f5-778303146d7a": {
+      "orderId": "NC-20260703-8613",
+      "productId": "prod_039",
+      "name": "The Creative Act by Rick Rubin",
+      "price": 18.9,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop"
+    },
+    "e1d7d4bd-376d-4d7f-95a8-dbdc762d0d7f": {
+      "orderId": "NC-20260703-6957",
+      "productId": "prod_026",
+      "name": "Est\u00e9e Lauder Advanced Night Repair",
+      "price": 63.75,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop"
+    },
+    "9a1e0fec-8316-4cb1-acaf-52a75d378d67": {
+      "orderId": "NC-20260703-6957",
+      "productId": "prod_007",
+      "name": "Logitech MX Master 3S Mouse",
+      "price": 99.0,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop"
+    },
+    "8b90b524-74d3-4ac8-8444-4830b671ad03": {
+      "orderId": "NC-20260703-3809",
+      "productId": "prod_021",
+      "name": "Seiko Presage Automatic",
+      "price": 360.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&auto=format&fit=crop"
+    },
+    "163214fa-ba62-435f-8a69-8e89194b08bf": {
+      "orderId": "NC-20260703-3809",
+      "productId": "prod_047",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 46",
+      "price": 1007.28,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+    },
+    "480e975b-a9af-461f-ac67-2faab5bd1205": {
+      "orderId": "NC-20260703-3809",
+      "productId": "prod_028",
+      "name": "MAC Matte Lipstick (Ruby Woo)",
+      "price": 20.7,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop"
+    },
+    "39e2edd6-256a-4db9-a3ba-ef8b7e5f563d": {
+      "orderId": "NC-20260703-1609",
+      "productId": "prod_025",
+      "name": "Modern Lounge Armchair",
+      "price": 320.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop"
+    },
+    "0267f852-a674-4eb3-bdf7-40a4189fecde": {
+      "orderId": "NC-20260703-1609",
+      "productId": "prod_015",
+      "name": "Converse Chuck Taylor All Star",
+      "price": 65.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&auto=format&fit=crop"
+    },
+    "5a9ca494-de29-4858-a442-c33235933e15": {
+      "orderId": "NC-20260703-1609",
+      "productId": "prod_028",
+      "name": "MAC Matte Lipstick (Ruby Woo)",
+      "price": 20.7,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop"
+    },
+    "2bcbe61d-957b-4a07-90ee-b04b5d9cf9e5": {
+      "orderId": "NC-20260703-3380",
+      "productId": "prod_006",
+      "name": "Dell XPS 13 Gaming Laptop",
+      "price": 1259.1,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+    },
+    "46946d1c-ff4f-4fa0-a40b-6a5add312b7f": {
+      "orderId": "NC-20260703-3380",
+      "productId": "prod_014",
+      "name": "Adidas Ultraboost Light",
+      "price": 152.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&auto=format&fit=crop"
+    },
+    "88c69831-08ea-4401-9d8b-9e9f84db17ef": {
+      "orderId": "NC-20260703-3380",
+      "productId": "prod_007",
+      "name": "Logitech MX Master 3S Mouse",
+      "price": 99.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop"
+    },
+    "735aae86-e4ac-4373-921e-b093f2b86aee": {
+      "orderId": "NC-20260703-7850",
+      "productId": "prod_031",
+      "name": "Extra Virgin Olive Oil (Cold Pressed)",
+      "price": 14.8,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop"
+    },
+    "77b563ca-77c7-46d1-a56b-05c7d916c951": {
+      "orderId": "NC-20260703-7850",
+      "productId": "prod_048",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 47",
+      "price": 1399.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+    },
+    "2bf47be5-e113-421c-8ec1-4c9ef735ccd7": {
+      "orderId": "NC-20260703-7850",
+      "productId": "prod_040",
+      "name": "Dune Deluxe Edition by Frank Herbert",
+      "price": 32.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=500&auto=format&fit=crop"
+    },
+    "4ecda99d-098f-44e0-a52b-022af7e6b06c": {
+      "orderId": "NC-20260703-6736",
+      "productId": "prod_032",
+      "name": "Premium Raw Manuka Honey (MGO 400+)",
+      "price": 31.5,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&auto=format&fit=crop"
+    },
+    "a3b878f2-f42a-4c6b-a476-34680acad6ee": {
+      "orderId": "NC-20260703-6736",
+      "productId": "prod_001",
+      "name": "iPhone 15 Pro",
+      "price": 999.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop"
+    },
+    "f5ca7f8a-383d-4306-9c08-14d61fd49225": {
+      "orderId": "NC-20260703-6736",
+      "productId": "prod_003",
+      "name": "MacBook Air M3",
+      "price": 824.25,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop"
+    },
+    "32b23178-108b-46b5-9c5f-0aabd0362aaf": {
+      "orderId": "NC-20260703-1911",
+      "productId": "prod_047",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 46",
+      "price": 1007.28,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+    },
+    "553fd063-f9af-42d2-b40f-cafa2fd4e576": {
+      "orderId": "NC-20260703-7699",
+      "productId": "prod_021",
+      "name": "Seiko Presage Automatic",
+      "price": 360.0,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&auto=format&fit=crop"
+    },
+    "7985defb-090a-4522-a5a3-dca4fe9ef7d9": {
+      "orderId": "NC-20260703-7699",
+      "productId": "prod_006",
+      "name": "Dell XPS 13 Gaming Laptop",
+      "price": 1259.1,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+    },
+    "be91bf37-8e7c-4780-aa13-0bb17af9a1c0": {
+      "orderId": "NC-20260703-8790",
+      "productId": "prod_008",
+      "name": "Levis 511 Slim Jeans",
+      "price": 55.6,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&auto=format&fit=crop"
+    },
+    "1eb18c75-304d-4b31-92cc-e69b6eee1729": {
+      "orderId": "NC-20260703-8790",
+      "productId": "prod_043",
+      "name": "Soft Textured Throw Blanket",
+      "price": 43.2,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=500&auto=format&fit=crop"
+    },
+    "f1d84ca8-12e9-45de-8ba1-31bf13ba7a33": {
+      "orderId": "NC-20260703-8790",
+      "productId": "prod_012",
+      "name": "Nike Windrunner Jacket",
+      "price": 82.5,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=500&auto=format&fit=crop"
+    },
+    "7c308a3d-8d57-4dfb-ace3-c64ad7dc0078": {
+      "orderId": "NC-20260703-5295",
+      "productId": "prod_028",
+      "name": "MAC Matte Lipstick (Ruby Woo)",
+      "price": 20.7,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop"
+    },
+    "af6a61b7-c9c3-4654-9b35-7d21e460563e": {
+      "orderId": "NC-20260703-5295",
+      "productId": "prod_038",
+      "name": "Atomic Habits by James Clear",
+      "price": 12.96,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop"
+    },
+    "9cec8270-83ef-4bdb-98a5-a1da1da48a8e": {
+      "orderId": "NC-20260703-5295",
+      "productId": "prod_008",
+      "name": "Levis 511 Slim Jeans",
+      "price": 55.6,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&auto=format&fit=crop"
+    },
+    "d087d1f4-4fdc-4aa3-8def-db7bd39d9da4": {
+      "orderId": "NC-20260703-4806",
+      "productId": "prod_048",
+      "name": "Dell XPS 13 Gaming Laptop Special Edition 47",
+      "price": 1399.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop"
+    },
+    "cfba366b-4b3c-40a5-8b85-82afb36a2cc5": {
+      "orderId": "NC-20260703-5112",
+      "productId": "prod_013",
+      "name": "Nike Air Max 270",
+      "price": 136.0,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"
+    },
+    "af800b1f-cb8d-41ec-9e91-9bd64c744207": {
+      "orderId": "NC-20260703-5112",
+      "productId": "prod_008",
+      "name": "Levis 511 Slim Jeans",
+      "price": 55.6,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&auto=format&fit=crop"
+    },
+    "ee1ef62c-fac9-43f6-af1d-6bfd42eece0e": {
+      "orderId": "NC-20260703-3255",
+      "productId": "prod_029",
+      "name": "CeraVe Hydrating Facial Cleanser",
+      "price": 14.44,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop"
+    },
+    "2f07a24a-1dcc-4aec-a1ea-d3fdc16bcd21": {
+      "orderId": "NC-20260703-3255",
+      "productId": "prod_036",
+      "name": "Spalding NBA Zi/O Basketball",
+      "price": 40.49,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=500&auto=format&fit=crop"
+    },
+    "3405c69a-61e6-49fd-80d1-50cd1549e490": {
+      "orderId": "NC-20260703-3255",
+      "productId": "prod_037",
+      "name": "Titleist Pro V1 Golf Balls (Dozen)",
+      "price": 41.25,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=500&auto=format&fit=crop"
+    },
+    "781af9a7-5e2b-4707-a07d-77f88ddf0de0": {
+      "orderId": "NC-20260703-4990",
+      "productId": "prod_021",
+      "name": "Seiko Presage Automatic",
+      "price": 360.0,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&auto=format&fit=crop"
+    },
+    "33226d1c-89a1-46c1-9cca-ab1be2e0630a": {
+      "orderId": "NC-20260703-4990",
+      "productId": "prod_022",
+      "name": "Mid-Century Velvet Sofa",
+      "price": 899.0,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&auto=format&fit=crop"
+    },
+    "7b3f8b11-c26c-471b-bb9e-ae78b6192e51": {
+      "orderId": "NC-20260703-3190",
+      "productId": "prod_036",
+      "name": "Spalding NBA Zi/O Basketball",
+      "price": 40.49,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1519766304817-4f37bda74a27?w=500&auto=format&fit=crop"
+    },
+    "bfc53d81-f796-49af-97dd-6a3d74cf80f6": {
+      "orderId": "NC-20260703-3190",
+      "productId": "prod_035",
+      "name": "Fitbit Charge 6 Fitness Tracker",
+      "price": 135.96,
+      "quantity": 1,
+      "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&auto=format&fit=crop"
+    },
+    "e5edb78a-2ccb-40c2-b9e1-88d72469ab3f": {
+      "orderId": "NC-20260703-3190",
+      "productId": "prod_024",
+      "name": "Ergonomic Mesh Office Chair",
+      "price": 199.2,
+      "quantity": 2,
+      "image": "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=500&auto=format&fit=crop"
+    }
+  },
+  "orders": {
+    "NC-20260703-2156": {
+      "orderId": "NC-20260703-2156",
+      "userId": "user_uid_5",
+      "email": "david.jones@example.com",
+      "shippingAddress": {
+        "name": "David Jones",
+        "phone": "+1 (555) 123-4567",
+        "street": "328 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "David Jones",
+        "phone": "+1 (555) 123-4567",
+        "street": "931 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 654.44,
+      "shippingFee": 0.0,
+      "tax": 106.02,
+      "discount": 65.44,
+      "total": 695.02,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Confirmed",
+      "createdAt": "2026-06-26T15:27:45.642430",
+      "updatedAt": "2026-07-03T15:27:45.642447"
+    },
+    "NC-20260703-8665": {
+      "orderId": "NC-20260703-8665",
+      "userId": "user_uid_19",
+      "email": "daniel.jackson@example.com",
+      "shippingAddress": {
+        "name": "Daniel Jackson",
+        "phone": "+1 (555) 123-4567",
+        "street": "707 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Daniel Jackson",
+        "phone": "+1 (555) 123-4567",
+        "street": "329 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 1928.4,
+      "shippingFee": 0.0,
+      "tax": 347.11,
+      "discount": 0.0,
+      "total": 2275.51,
+      "couponCode": "",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Confirmed",
+      "createdAt": "2026-06-17T15:27:45.654288",
+      "updatedAt": "2026-07-03T15:27:45.654300"
+    },
+    "NC-20260703-9529": {
+      "orderId": "NC-20260703-9529",
+      "userId": "user_uid_7",
+      "email": "james.miller@example.com",
+      "shippingAddress": {
+        "name": "James Miller",
+        "phone": "+1 (555) 123-4567",
+        "street": "855 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "James Miller",
+        "phone": "+1 (555) 123-4567",
+        "street": "996 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 1438.2,
+      "shippingFee": 0.0,
+      "tax": 258.88,
+      "discount": 0.0,
+      "total": 1697.08,
+      "couponCode": "",
+      "paymentMethod": "card",
+      "paymentStatus": "completed",
+      "orderStatus": "Delivered",
+      "createdAt": "2026-06-24T15:27:45.672378",
+      "updatedAt": "2026-07-03T15:27:45.672387"
+    },
+    "NC-20260703-4564": {
+      "orderId": "NC-20260703-4564",
+      "userId": "user_uid_16",
+      "email": "lauren.thomas@example.com",
+      "shippingAddress": {
+        "name": "Lauren Thomas",
+        "phone": "+1 (555) 123-4567",
+        "street": "410 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Lauren Thomas",
+        "phone": "+1 (555) 123-4567",
+        "street": "780 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 361.9,
+      "shippingFee": 0.0,
+      "tax": 58.63,
+      "discount": 36.19,
+      "total": 384.34,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Delivered",
+      "createdAt": "2026-06-27T15:27:45.689685",
+      "updatedAt": "2026-07-03T15:27:45.689698"
+    },
+    "NC-20260703-8613": {
+      "orderId": "NC-20260703-8613",
+      "userId": "user_uid_13",
+      "email": "joseph.gonzalez@example.com",
+      "shippingAddress": {
+        "name": "Joseph Gonzalez",
+        "phone": "+1 (555) 123-4567",
+        "street": "706 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Joseph Gonzalez",
+        "phone": "+1 (555) 123-4567",
+        "street": "396 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 37.8,
+      "shippingFee": 15.0,
+      "tax": 6.12,
+      "discount": 3.78,
+      "total": 55.14,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Confirmed",
+      "createdAt": "2026-06-30T15:27:45.702361",
+      "updatedAt": "2026-07-03T15:27:45.702373"
+    },
+    "NC-20260703-6957": {
+      "orderId": "NC-20260703-6957",
+      "userId": "user_uid_16",
+      "email": "lauren.thomas@example.com",
+      "shippingAddress": {
+        "name": "Lauren Thomas",
+        "phone": "+1 (555) 123-4567",
+        "street": "269 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Lauren Thomas",
+        "phone": "+1 (555) 123-4567",
+        "street": "813 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 325.5,
+      "shippingFee": 0.0,
+      "tax": 52.73,
+      "discount": 32.55,
+      "total": 345.68,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Confirmed",
+      "createdAt": "2026-06-22T15:27:45.716929",
+      "updatedAt": "2026-07-03T15:27:45.716940"
+    },
+    "NC-20260703-3809": {
+      "orderId": "NC-20260703-3809",
+      "userId": "user_uid_3",
+      "email": "michael.williams@example.com",
+      "shippingAddress": {
+        "name": "Michael Williams",
+        "phone": "+1 (555) 123-4567",
+        "street": "454 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Michael Williams",
+        "phone": "+1 (555) 123-4567",
+        "street": "750 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 2415.96,
+      "shippingFee": 0.0,
+      "tax": 391.39,
+      "discount": 241.6,
+      "total": 2565.75,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "card",
+      "paymentStatus": "completed",
+      "orderStatus": "Delivered",
+      "createdAt": "2026-06-30T15:27:45.735587",
+      "updatedAt": "2026-07-03T15:27:45.735598"
+    },
+    "NC-20260703-1609": {
+      "orderId": "NC-20260703-1609",
+      "userId": "user_uid_7",
+      "email": "james.miller@example.com",
+      "shippingAddress": {
+        "name": "James Miller",
+        "phone": "+1 (555) 123-4567",
+        "street": "670 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "James Miller",
+        "phone": "+1 (555) 123-4567",
+        "street": "265 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 426.4,
+      "shippingFee": 0.0,
+      "tax": 76.75,
+      "discount": 0.0,
+      "total": 503.15,
+      "couponCode": "",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Shipped",
+      "createdAt": "2026-06-18T15:27:45.765236",
+      "updatedAt": "2026-07-03T15:27:45.765249"
+    },
+    "NC-20260703-3380": {
+      "orderId": "NC-20260703-3380",
+      "userId": "admin_uid_xyz",
+      "email": "admin@novacart.com",
+      "shippingAddress": {
+        "name": "NovaCart Admin",
+        "phone": "+1 (555) 123-4567",
+        "street": "961 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "NovaCart Admin",
+        "phone": "+1 (555) 123-4567",
+        "street": "738 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 2769.2,
+      "shippingFee": 0.0,
+      "tax": 498.46,
+      "discount": 0.0,
+      "total": 3267.66,
+      "couponCode": "",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Packed",
+      "createdAt": "2026-06-27T15:27:45.793493",
+      "updatedAt": "2026-07-03T15:27:45.793513"
+    },
+    "NC-20260703-7850": {
+      "orderId": "NC-20260703-7850",
+      "userId": "user_uid_1",
+      "email": "john.smith@example.com",
+      "shippingAddress": {
+        "name": "John Smith",
+        "phone": "+1 (555) 123-4567",
+        "street": "733 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "John Smith",
+        "phone": "+1 (555) 123-4567",
+        "street": "667 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 1460.6,
+      "shippingFee": 0.0,
+      "tax": 262.91,
+      "discount": 0.0,
+      "total": 1723.51,
+      "couponCode": "",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Packed",
+      "createdAt": "2026-06-23T15:27:45.818282",
+      "updatedAt": "2026-07-03T15:27:45.818294"
+    },
+    "NC-20260703-6736": {
+      "orderId": "NC-20260703-6736",
+      "userId": "user_uid_14",
+      "email": "elizabeth.wilson@example.com",
+      "shippingAddress": {
+        "name": "Elizabeth Wilson",
+        "phone": "+1 (555) 123-4567",
+        "street": "532 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Elizabeth Wilson",
+        "phone": "+1 (555) 123-4567",
+        "street": "598 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 1886.25,
+      "shippingFee": 0.0,
+      "tax": 339.52,
+      "discount": 0.0,
+      "total": 2225.78,
+      "couponCode": "",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Pending",
+      "createdAt": "2026-06-25T15:27:45.849446",
+      "updatedAt": "2026-07-03T15:27:45.849459"
+    },
+    "NC-20260703-1911": {
+      "orderId": "NC-20260703-1911",
+      "userId": "user_uid_6",
+      "email": "jessica.garcia@example.com",
+      "shippingAddress": {
+        "name": "Jessica Garcia",
+        "phone": "+1 (555) 123-4567",
+        "street": "202 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Jessica Garcia",
+        "phone": "+1 (555) 123-4567",
+        "street": "225 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 2014.56,
+      "shippingFee": 0.0,
+      "tax": 326.36,
+      "discount": 201.46,
+      "total": 2139.46,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "card",
+      "paymentStatus": "completed",
+      "orderStatus": "Delivered",
+      "createdAt": "2026-06-27T15:27:45.864800",
+      "updatedAt": "2026-07-03T15:27:45.864813"
+    },
+    "NC-20260703-7699": {
+      "orderId": "NC-20260703-7699",
+      "userId": "user_uid_2",
+      "email": "emily.johnson@example.com",
+      "shippingAddress": {
+        "name": "Emily Johnson",
+        "phone": "+1 (555) 123-4567",
+        "street": "345 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Emily Johnson",
+        "phone": "+1 (555) 123-4567",
+        "street": "517 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 1979.1,
+      "shippingFee": 0.0,
+      "tax": 320.61,
+      "discount": 197.91,
+      "total": 2101.8,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Pending",
+      "createdAt": "2026-06-23T15:27:45.891654",
+      "updatedAt": "2026-07-03T15:27:45.891673"
+    },
+    "NC-20260703-8790": {
+      "orderId": "NC-20260703-8790",
+      "userId": "user_uid_2",
+      "email": "emily.johnson@example.com",
+      "shippingAddress": {
+        "name": "Emily Johnson",
+        "phone": "+1 (555) 123-4567",
+        "street": "504 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Emily Johnson",
+        "phone": "+1 (555) 123-4567",
+        "street": "164 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 181.3,
+      "shippingFee": 15.0,
+      "tax": 29.37,
+      "discount": 18.13,
+      "total": 207.54,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Confirmed",
+      "createdAt": "2026-06-24T15:27:45.918593",
+      "updatedAt": "2026-07-03T15:27:45.918604"
+    },
+    "NC-20260703-5295": {
+      "orderId": "NC-20260703-5295",
+      "userId": "user_uid_3",
+      "email": "michael.williams@example.com",
+      "shippingAddress": {
+        "name": "Michael Williams",
+        "phone": "+1 (555) 123-4567",
+        "street": "710 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Michael Williams",
+        "phone": "+1 (555) 123-4567",
+        "street": "513 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 89.26,
+      "shippingFee": 15.0,
+      "tax": 16.07,
+      "discount": 0.0,
+      "total": 120.33,
+      "couponCode": "",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Shipped",
+      "createdAt": "2026-06-24T15:27:45.946137",
+      "updatedAt": "2026-07-03T15:27:45.946151"
+    },
+    "NC-20260703-4806": {
+      "orderId": "NC-20260703-4806",
+      "userId": "user_uid_10",
+      "email": "amanda.martinez@example.com",
+      "shippingAddress": {
+        "name": "Amanda Martinez",
+        "phone": "+1 (555) 123-4567",
+        "street": "669 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Amanda Martinez",
+        "phone": "+1 (555) 123-4567",
+        "street": "421 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 1399.0,
+      "shippingFee": 0.0,
+      "tax": 226.64,
+      "discount": 139.9,
+      "total": 1485.74,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Confirmed",
+      "createdAt": "2026-06-16T15:27:45.968083",
+      "updatedAt": "2026-07-03T15:27:45.968094"
+    },
+    "NC-20260703-5112": {
+      "orderId": "NC-20260703-5112",
+      "userId": "user_uid_6",
+      "email": "jessica.garcia@example.com",
+      "shippingAddress": {
+        "name": "Jessica Garcia",
+        "phone": "+1 (555) 123-4567",
+        "street": "429 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Jessica Garcia",
+        "phone": "+1 (555) 123-4567",
+        "street": "691 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 247.2,
+      "shippingFee": 0.0,
+      "tax": 40.05,
+      "discount": 24.72,
+      "total": 262.53,
+      "couponCode": "WELCOME10",
+      "paymentMethod": "card",
+      "paymentStatus": "completed",
+      "orderStatus": "Packed",
+      "createdAt": "2026-06-20T15:27:45.989814",
+      "updatedAt": "2026-07-03T15:27:45.989830"
+    },
+    "NC-20260703-3255": {
+      "orderId": "NC-20260703-3255",
+      "userId": "user_uid_10",
+      "email": "amanda.martinez@example.com",
+      "shippingAddress": {
+        "name": "Amanda Martinez",
+        "phone": "+1 (555) 123-4567",
+        "street": "684 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Amanda Martinez",
+        "phone": "+1 (555) 123-4567",
+        "street": "817 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 137.43,
+      "shippingFee": 15.0,
+      "tax": 24.74,
+      "discount": 0.0,
+      "total": 177.17,
+      "couponCode": "",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "orderStatus": "Pending",
+      "createdAt": "2026-07-02T15:27:46.022882",
+      "updatedAt": "2026-07-03T15:27:46.022895"
+    },
+    "NC-20260703-4990": {
+      "orderId": "NC-20260703-4990",
+      "userId": "admin_uid_xyz",
+      "email": "admin@novacart.com",
+      "shippingAddress": {
+        "name": "NovaCart Admin",
+        "phone": "+1 (555) 123-4567",
+        "street": "395 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "NovaCart Admin",
+        "phone": "+1 (555) 123-4567",
+        "street": "966 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 2518.0,
+      "shippingFee": 0.0,
+      "tax": 453.24,
+      "discount": 0.0,
+      "total": 2971.24,
+      "couponCode": "",
+      "paymentMethod": "upi",
+      "paymentStatus": "completed",
+      "orderStatus": "Delivered",
+      "createdAt": "2026-06-23T15:27:46.045317",
+      "updatedAt": "2026-07-03T15:27:46.045332"
+    },
+    "NC-20260703-3190": {
+      "orderId": "NC-20260703-3190",
+      "userId": "user_uid_17",
+      "email": "charles.taylor@example.com",
+      "shippingAddress": {
+        "name": "Charles Taylor",
+        "phone": "+1 (555) 123-4567",
+        "street": "114 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "name": "Charles Taylor",
+        "phone": "+1 (555) 123-4567",
+        "street": "961 Maple Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "country": "United States"
+      },
+      "subtotal": 574.85,
+      "shippingFee": 0.0,
+      "tax": 103.47,
+      "discount": 0.0,
+      "total": 678.32,
+      "couponCode": "",
+      "paymentMethod": "card",
+      "paymentStatus": "completed",
+      "orderStatus": "Shipped",
+      "createdAt": "2026-06-23T15:27:46.080137",
+      "updatedAt": "2026-07-03T15:27:46.080152"
+    }
+  },
+  "payments": {
+    "df52913a-32e6-40b4-b1f7-d5b11a1ccb46": {
+      "paymentId": "pay_002",
+      "orderId": "NC-20260703-8665",
+      "userId": "user_uid_19",
+      "amount": 2275.51,
+      "method": "upi",
+      "transactionId": "TXN481005454",
+      "status": "success",
+      "createdAt": "2026-06-17T15:27:45.654288"
+    },
+    "c701a78e-dc0e-4298-b65a-d64a95a54e6d": {
+      "paymentId": "pay_003",
+      "orderId": "NC-20260703-9529",
+      "userId": "user_uid_7",
+      "amount": 1697.08,
+      "method": "card",
+      "transactionId": "TXN448352927",
+      "status": "success",
+      "createdAt": "2026-06-24T15:27:45.672378"
+    },
+    "2afb24de-2a2f-4e94-944c-721002c64b98": {
+      "paymentId": "pay_004",
+      "orderId": "NC-20260703-4564",
+      "userId": "user_uid_16",
+      "amount": 384.34,
+      "method": "upi",
+      "transactionId": "TXN832979064",
+      "status": "success",
+      "createdAt": "2026-06-27T15:27:45.689685"
+    },
+    "c22d421b-4d27-4f3b-905d-2388cb6cac31": {
+      "paymentId": "pay_007",
+      "orderId": "NC-20260703-3809",
+      "userId": "user_uid_3",
+      "amount": 2565.75,
+      "method": "card",
+      "transactionId": "TXN449446974",
+      "status": "success",
+      "createdAt": "2026-06-30T15:27:45.735587"
+    },
+    "7504a1d8-536d-4ab9-b4ce-e8a8b919b8b2": {
+      "paymentId": "pay_008",
+      "orderId": "NC-20260703-1609",
+      "userId": "user_uid_7",
+      "amount": 503.15,
+      "method": "upi",
+      "transactionId": "TXN391680331",
+      "status": "success",
+      "createdAt": "2026-06-18T15:27:45.765236"
+    },
+    "28d012b5-475f-45e4-94ff-fe388ffa9a3a": {
+      "paymentId": "pay_010",
+      "orderId": "NC-20260703-7850",
+      "userId": "user_uid_1",
+      "amount": 1723.51,
+      "method": "upi",
+      "transactionId": "TXN298740071",
+      "status": "success",
+      "createdAt": "2026-06-23T15:27:45.818282"
+    },
+    "4da77868-32bc-4bc8-bdfa-3aa7f1b662c0": {
+      "paymentId": "pay_012",
+      "orderId": "NC-20260703-1911",
+      "userId": "user_uid_6",
+      "amount": 2139.46,
+      "method": "card",
+      "transactionId": "TXN609485870",
+      "status": "success",
+      "createdAt": "2026-06-27T15:27:45.864800"
+    },
+    "98b1b86d-e194-4cbf-8ed6-ba05ebfb3277": {
+      "paymentId": "pay_014",
+      "orderId": "NC-20260703-8790",
+      "userId": "user_uid_2",
+      "amount": 207.54,
+      "method": "upi",
+      "transactionId": "TXN741004242",
+      "status": "success",
+      "createdAt": "2026-06-24T15:27:45.918593"
+    },
+    "74dd1ec9-1c97-4622-b228-b5c24049ddbf": {
+      "paymentId": "pay_015",
+      "orderId": "NC-20260703-5295",
+      "userId": "user_uid_3",
+      "amount": 120.33,
+      "method": "upi",
+      "transactionId": "TXN197842505",
+      "status": "success",
+      "createdAt": "2026-06-24T15:27:45.946137"
+    },
+    "c24e2c4a-1025-481b-b47d-155f97f0c2a9": {
+      "paymentId": "pay_016",
+      "orderId": "NC-20260703-4806",
+      "userId": "user_uid_10",
+      "amount": 1485.74,
+      "method": "upi",
+      "transactionId": "TXN427164587",
+      "status": "success",
+      "createdAt": "2026-06-16T15:27:45.968083"
+    },
+    "01fcaefa-2bcf-40a0-9de9-b02f590bcf9f": {
+      "paymentId": "pay_017",
+      "orderId": "NC-20260703-5112",
+      "userId": "user_uid_6",
+      "amount": 262.53,
+      "method": "card",
+      "transactionId": "TXN736677002",
+      "status": "success",
+      "createdAt": "2026-06-20T15:27:45.989814"
+    },
+    "fdaad1c6-c7e9-4562-8760-a0589b3fde88": {
+      "paymentId": "pay_019",
+      "orderId": "NC-20260703-4990",
+      "userId": "admin_uid_xyz",
+      "amount": 2971.24,
+      "method": "upi",
+      "transactionId": "TXN275892154",
+      "status": "success",
+      "createdAt": "2026-06-23T15:27:46.045317"
+    },
+    "70c88ffc-f2bb-45f6-952d-dc3e34c37a3a": {
+      "paymentId": "pay_020",
+      "orderId": "NC-20260703-3190",
+      "userId": "user_uid_17",
+      "amount": 678.32,
+      "method": "card",
+      "transactionId": "TXN685223831",
+      "status": "success",
+      "createdAt": "2026-06-23T15:27:46.080137"
+    }
+  },
+  "notifications": {
+    "4a8384a7-adf1-4ae2-9019-a61629d6a91e": {
+      "userId": "user_uid_19",
+      "title": "Order Confirmed",
+      "message": "Your order NC-20260703-8665 is currently: Confirmed.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.664406"
+    },
+    "986973be-6833-48ee-8958-31142813ddd8": {
+      "userId": "user_uid_3",
+      "title": "Order Delivered",
+      "message": "Your order NC-20260703-3809 is currently: Delivered.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.745358"
+    },
+    "86f4eb4a-7757-4ac6-831f-b02394687762": {
+      "userId": "user_uid_7",
+      "title": "Order Shipped",
+      "message": "Your order NC-20260703-1609 is currently: Shipped.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.773689"
+    },
+    "f0950c8e-bd7a-4352-8c29-9dc0d9b86157": {
+      "userId": "admin_uid_xyz",
+      "title": "Order Packed",
+      "message": "Your order NC-20260703-3380 is currently: Packed.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.797735"
+    },
+    "9e8a6ffe-e661-44dd-9dda-16d78de2c1ae": {
+      "userId": "user_uid_1",
+      "title": "Order Packed",
+      "message": "Your order NC-20260703-7850 is currently: Packed.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.828458"
+    },
+    "bb579e44-4026-493b-8317-423ccd569212": {
+      "userId": "user_uid_14",
+      "title": "Order Pending",
+      "message": "Your order NC-20260703-6736 is currently: Pending.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.853434"
+    },
+    "6b16fa6f-ff8c-4023-a159-c57b5e390142": {
+      "userId": "user_uid_6",
+      "title": "Order Delivered",
+      "message": "Your order NC-20260703-1911 is currently: Delivered.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.874603"
+    },
+    "75e2f51e-9aac-4b39-a785-f57e74ecc0d6": {
+      "userId": "user_uid_2",
+      "title": "Order Pending",
+      "message": "Your order NC-20260703-7699 is currently: Pending.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.896918"
+    },
+    "50b2d029-087f-4a4b-b517-4e63b18444e7": {
+      "userId": "user_uid_3",
+      "title": "Order Shipped",
+      "message": "Your order NC-20260703-5295 is currently: Shipped.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:45.955986"
+    },
+    "87c72f91-b130-415d-82eb-05e0bad0460c": {
+      "userId": "user_uid_6",
+      "title": "Order Packed",
+      "message": "Your order NC-20260703-5112 is currently: Packed.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:46.000961"
+    },
+    "ec82c48a-b1d7-4c97-8e38-a3a1a2e96d8d": {
+      "userId": "user_uid_10",
+      "title": "Order Pending",
+      "message": "Your order NC-20260703-3255 is currently: Pending.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:46.028357"
+    },
+    "9bf88612-0ba4-4d2d-8d70-700449ebe979": {
+      "userId": "admin_uid_xyz",
+      "title": "Order Delivered",
+      "message": "Your order NC-20260703-4990 is currently: Delivered.",
+      "type": "order",
+      "isRead": false,
+      "createdAt": "2026-07-03T15:27:46.055158"
+    }
+  }
+}

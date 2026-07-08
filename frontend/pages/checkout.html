@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - NovaCart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="glass scrolled">
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-shopping-bag"></i> Nova<span>Cart</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button id="theme-toggle" class="nav-icon"><i class="fas fa-moon"></i></button>
+        <a href="/wishlist/" class="nav-icon">
+          <i class="fas fa-heart"></i>
+          <span id="wishlist-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top: 100px; margin-bottom: 80px;">
+    <!-- Authorization Check Loading -->
+    <div id="checkout-auth-loader" style="text-align:center; padding: 100px 0;">
+      <i class="fas fa-spinner fa-spin" style="font-size:48px; color:var(--primary);"></i>
+      <p style="margin-top:16px; color:var(--slate-500);">Checking secure session credentials...</p>
+    </div>
+
+    <!-- Main Layout Wrapper (Initially Hidden) -->
+    <div class="checkout-layout" id="checkout-layout-wrapper" style="display: none;">
+      <!-- Left side form panels -->
+      <form id="checkout-forms">
+        <!-- Shipping Address Details -->
+        <div class="checkout-card glass">
+          <h2>Shipping Address</h2>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="ship-name">Full Name *</label>
+              <input type="text" id="ship-name" required placeholder="John Smith">
+            </div>
+            <div class="form-group">
+              <label for="ship-phone">Phone Number *</label>
+              <input type="text" id="ship-phone" required placeholder="+1 (555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="ship-street">Street Address *</label>
+              <input type="text" id="ship-street" required placeholder="100 Maple St">
+            </div>
+            <div class="form-group">
+              <label for="ship-city">City *</label>
+              <input type="text" id="ship-city" required placeholder="San Francisco">
+            </div>
+            <div class="form-group">
+              <label for="ship-state">State / Province *</label>
+              <input type="text" id="ship-state" required placeholder="CA">
+            </div>
+            <div class="form-group">
+              <label for="ship-zip">Zip / Postal Code *</label>
+              <input type="text" id="ship-zip" required placeholder="94103">
+            </div>
+            <div class="form-group">
+              <label for="ship-country">Country *</label>
+              <select id="ship-country" required>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="India">India</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method Options -->
+        <div class="checkout-card glass">
+          <h2>Payment Method</h2>
+          <div class="payment-options">
+            <!-- Cash On Delivery -->
+            <div class="payment-pill selected" data-method="cod">
+              <div class="payment-pill-left">
+                <i class="fas fa-hand-holding-usd" style="font-size:20px; color:var(--primary);"></i>
+                <div>
+                  <div style="font-weight:600;">Cash on Delivery</div>
+                  <div style="font-size:12px; color:var(--slate-500);">Pay with cash upon package delivery</div>
+                </div>
+              </div>
+              <i class="fas fa-check-circle" style="color:var(--primary);"></i>
+            </div>
+
+            <!-- UPI Payment -->
+            <div class="payment-pill" data-method="upi">
+              <div class="payment-pill-left">
+                <i class="fas fa-mobile-alt" style="font-size:20px; color:var(--slate-500);"></i>
+                <div>
+                  <div style="font-weight:600;">Instant UPI Transfer</div>
+                  <div style="font-size:12px; color:var(--slate-500);">Scan QR Code or enter UPI ID</div>
+                </div>
+              </div>
+              <i class="far fa-circle" style="color:var(--slate-300);"></i>
+            </div>
+
+            <!-- Credit Card -->
+            <div class="payment-pill" data-method="card">
+              <div class="payment-pill-left">
+                <i class="fas fa-credit-card" style="font-size:20px; color:var(--slate-500);"></i>
+                <div>
+                  <div style="font-weight:600;">Credit / Debit Card</div>
+                  <div style="font-size:12px; color:var(--slate-500);">We accept Visa, Mastercard, and Amex</div>
+                </div>
+              </div>
+              <i class="far fa-circle" style="color:var(--slate-300);"></i>
+            </div>
+          </div>
+
+          <!-- Dynamic UPI Form -->
+          <div id="upi-details-pane" style="display: none; margin-top:24px; padding:20px; background-color:var(--slate-100); border-radius:var(--radius);">
+            <div class="form-group" style="margin-bottom:0;">
+              <label for="upi-id-input">UPI ID / VPA *</label>
+              <input type="text" id="upi-id-input" placeholder="username@upi" style="background-color: white;">
+              <p style="font-size:11px; color:var(--slate-500); margin-top:8px;"><i class="fas fa-info-circle"></i> Payments processed via UPI QR codes dynamically simulated on successful placement.</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Card Form -->
+          <div id="card-details-pane" style="display: none; margin-top:24px; padding:20px; background-color:var(--slate-100); border-radius:var(--radius);">
+            <div class="form-grid" style="gap:16px;">
+              <div class="form-group full-width" style="margin-bottom:0;">
+                <label for="card-num">Card Number *</label>
+                <input type="text" id="card-num" placeholder="4111 2222 3333 4444" style="background-color: white;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="card-expiry">Expiry Date *</label>
+                <input type="text" id="card-expiry" placeholder="MM/YY" style="background-color: white;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="card-cvv">CVV *</label>
+                <input type="password" id="card-cvv" placeholder="123" style="background-color: white;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Right side order summary card -->
+      <aside>
+        <div class="order-summary-box glass">
+          <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--slate-900); border-bottom: 1px solid var(--slate-200); padding-bottom: 10px;">Order Review</h2>
+          
+          <div style="max-height: 200px; overflow-y: auto; margin-bottom: 20px; border-bottom: 1px solid var(--slate-200); padding-bottom: 16px;" id="checkout-items-list">
+            <!-- Items list loaded dynamically -->
+          </div>
+
+          <!-- Pricing summary -->
+          <div class="summary-row">
+            <span style="color:var(--slate-500);">Subtotal</span>
+            <span id="summary-subtotal" style="font-weight:600;">$0.00</span>
+          </div>
+          <div class="summary-row" id="summary-discount-row" style="display: none;">
+            <span style="color:var(--success);">Discount</span>
+            <span id="summary-discount" style="font-weight:600; color:var(--success);">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span style="color:var(--slate-500);">Shipping</span>
+            <span id="summary-shipping" style="font-weight:600;">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span style="color:var(--slate-500);">Estimated Tax</span>
+            <span id="summary-tax" style="font-weight:600;">$0.00</span>
+          </div>
+
+          <div class="summary-row summary-total" style="border-top:1px solid var(--slate-200); padding-top:16px; margin-top:16px;">
+            <span>Total</span>
+            <span id="summary-total-price">$0.00</span>
+          </div>
+
+          <button class="btn-primary" id="btn-place-order" style="width: 100%; justify-content: center; margin-top: 24px; padding: 14px;">
+            Place Order <i class="fas fa-check"></i>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Firebase & Services Scripts -->
+  <script src="/static/firebase-config.js"></script>
+  <script src="/static/firebase-services.js"></script>
+  <script src="/static/js/main.js"></script>
+
+  <!-- Local Page Logic -->
+  <script>
+    let activePaymentMethod = "cod";
+    let productsCache = {};
+    let activeCoupon = null;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Validate secure session
+      window.NovaAuth.onAuthStateChanged(async (user) => {
+        if (!user) {
+          window.showToast("Secure checkout requires active session authentication.", "danger");
+          setTimeout(() => {
+            window.location.href = '/dashboard/?redirect=checkout';
+          }, 1500);
+          return;
+        }
+
+        // User is logged in, initialize checkout
+        document.getElementById("checkout-auth-loader").style.display = "none";
+        document.getElementById("checkout-layout-wrapper").style.display = "grid";
+        
+        // Auto-fill some values from user session
+        document.getElementById("ship-name").value = user.displayName || "";
+        
+        // Load active coupon
+        const coupStr = localStorage.getItem("novacart_active_coupon");
+        if (coupStr) {
+          activeCoupon = JSON.parse(coupStr);
+        }
+
+        await fetchCheckoutDetails();
+        initPaymentSelection();
+        initCheckoutSubmit();
+      });
+    });
+
+    // Load cart details and display items
+    async function fetchCheckoutDetails() {
+      const cart = window.CartManager.get().filter(item => !item.savedForLater);
+      if (cart.length === 0) {
+        window.showToast("Your cart is empty.", "warning");
+        window.location.href = '/shop/';
+        return;
+      }
+
+      // Pre-fetch all products
+      try {
+        const res = await window.NovaDB.getProducts({ limit: 100 });
+        res.products.forEach(p => {
+          productsCache[p.productId] = p;
+        });
+      } catch (err) {
+        console.error(err);
+      }
+
+      // Render items
+      const itemsList = document.getElementById("checkout-items-list");
+      itemsList.innerHTML = cart.map(item => {
+        const p = productsCache[item.productId];
+        if (!p) return '';
+        const discPrice = p.price * (1 - p.discount/100.0);
+        return `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; font-size:14px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <img src="${p.images[0]}" alt="${p.name}" style="width:40px; height:40px; border-radius:var(--radius-sm); object-fit:cover;">
+              <div>
+                <div style="font-weight:600; max-width:180px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">${p.name}</div>
+                <div style="font-size:12px; color:var(--slate-500);">Qty: ${item.quantity}</div>
+              </div>
+            </div>
+            <div style="font-weight:600;">$${(discPrice * item.quantity).toFixed(2)}</div>
+          </div>
+        `;
+      }).join('');
+
+      // Pricing Calculations
+      let subtotal = 0.0;
+      cart.forEach(item => {
+        const p = productsCache[item.productId];
+        if (p) {
+          subtotal += p.price * (1 - p.discount/100.0) * item.quantity;
+        }
+      });
+
+      let discount = 0.0;
+      if (activeCoupon && subtotal >= activeCoupon.minOrder) {
+        if (activeCoupon.type === "percentage") {
+          discount = subtotal * (activeCoupon.value / 100.0);
+        } else {
+          discount = activeCoupon.value;
+        }
+        document.getElementById("summary-discount-row").style.display = "flex";
+        document.getElementById("summary-discount").textContent = `-$${discount.toFixed(2)}`;
+      }
+
+      const shipping = subtotal > 200.0 ? 0.0 : 15.00;
+      const tax = (subtotal - discount) * 0.18;
+      const total = (subtotal - discount) + shipping + tax;
+
+      document.getElementById("summary-subtotal").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("summary-shipping").textContent = shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`;
+      document.getElementById("summary-tax").textContent = `$${tax.toFixed(2)}`;
+      document.getElementById("summary-total-price").textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Handle payment option clicks
+    function initPaymentSelection() {
+      const pills = document.querySelectorAll(".payment-pill");
+      pills.forEach(p => {
+        p.addEventListener("click", () => {
+          pills.forEach(pl => {
+            pl.classList.remove("selected");
+            pl.querySelector(".fas, .far").className = "far fa-circle";
+            pl.querySelector(".fas, .far").style.color = "var(--slate-300)";
+          });
+
+          p.classList.add("selected");
+          p.querySelector(".fas, .far").className = "fas fa-check-circle";
+          p.querySelector(".fas, .far").style.color = "var(--primary)";
+
+          activePaymentMethod = p.getAttribute("data-method");
+          
+          // Toggle sub-details panes
+          document.getElementById("upi-details-pane").style.display = activePaymentMethod === "upi" ? "block" : "none";
+          document.getElementById("card-details-pane").style.display = activePaymentMethod === "card" ? "block" : "none";
+        });
+      });
+    }
+
+    // Submit payload to checkout API
+    function initCheckoutSubmit() {
+      const form = document.getElementById("checkout-forms");
+      const btn = document.getElementById("btn-place-order");
+
+      btn.onclick = async (e) => {
+        e.preventDefault();
+
+        // Trigger native form validations
+        if (!form.reportValidity()) {
+          window.showToast("Please fill all required shipping fields.", "danger");
+          return;
+        }
+
+        // Payment sub-form validation
+        if (activePaymentMethod === "upi") {
+          const upiId = document.getElementById("upi-id-input").value.trim();
+          if (!upiId) {
+            window.showToast("Please enter your UPI ID.", "danger");
+            return;
+          }
+        } else if (activePaymentMethod === "card") {
+          const cardNum = document.getElementById("card-num").value.trim();
+          const cardExp = document.getElementById("card-expiry").value.trim();
+          const cardCvv = document.getElementById("card-cvv").value.trim();
+          if (!cardNum || !cardExp || !cardCvv) {
+            window.showToast("Please fill all credit card fields.", "danger");
+            return;
+          }
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Checkout...';
+
+        const cart = window.CartManager.get().filter(item => !item.savedForLater);
+        
+        const payload = {
+          items: cart,
+          shippingAddress: {
+            name: document.getElementById("ship-name").value.trim(),
+            phone: document.getElementById("ship-phone").value.trim(),
+            street: document.getElementById("ship-street").value.trim(),
+            city: document.getElementById("ship-city").value.trim(),
+            state: document.getElementById("ship-state").value.trim(),
+            zip: document.getElementById("ship-zip").value.trim(),
+            country: document.getElementById("ship-country").value
+          },
+          billingAddress: {
+            name: document.getElementById("ship-name").value.trim(),
+            phone: document.getElementById("ship-phone").value.trim(),
+            street: document.getElementById("ship-street").value.trim(),
+            city: document.getElementById("ship-city").value.trim(),
+            state: document.getElementById("ship-state").value.trim(),
+            zip: document.getElementById("ship-zip").value.trim(),
+            country: document.getElementById("ship-country").value
+          },
+          couponCode: activeCoupon ? activeCoupon.code : "",
+          paymentMethod: activePaymentMethod
+        };
+
+        try {
+          const res = await window.NovaDB.checkout(payload);
+          window.showToast(`Order placed! Order ID: ${res.orderId}`, "success");
+          
+          // Clear active cart items
+          window.CartManager.clear();
+          localStorage.removeItem("novacart_active_coupon");
+          
+          setTimeout(() => {
+            window.location.href = `/dashboard/?order=${res.orderId}`;
+          }, 1500);
+
+        } catch (err) {
+          window.showToast(err.message, "danger");
+          btn.disabled = false;
+          btn.innerHTML = 'Place Order <i class="fas fa-check"></i>';
+        }
+      };
+    }
+  </script>
+
+</body>
+</html>
