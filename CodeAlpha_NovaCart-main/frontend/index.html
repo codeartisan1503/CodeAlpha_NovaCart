@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaCart - Premium E-Commerce Store</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="glass">
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-shopping-bag"></i> Nova<span>Cart</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button id="theme-toggle" class="nav-icon"><i class="fas fa-moon"></i></button>
+        <a href="/wishlist/" class="nav-icon">
+          <i class="fas fa-heart"></i>
+          <span id="wishlist-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <!-- Dynamic Profile/Login element -->
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge badge-primary" style="margin-bottom: 16px;">New Season Arrivals</span>
+        <h1>Experience Premium Shopping on <span>NovaCart</span></h1>
+        <p>Discover an curated collection of elite electronics, fashion apparel, handcrafted furniture, and luxury accessories. Designed for comfort, styled for luxury.</p>
+        <div class="hero-buttons">
+          <a href="/shop/" class="btn-primary"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+          <a href="/about/" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop" alt="Premium E-Commerce Banner">
+          <div class="hero-floating-badge glass">
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--primary);">50% OFF</h3>
+            <p style="font-size: 12px; color: var(--slate-500);">On premium watches today</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="categories-container" id="categories-list">
+        <!-- Categories loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Flash Sale Section -->
+  <section class="section-padding flash-sale-section">
+    <div class="container">
+      <div class="flash-sale-header">
+        <div class="flash-sale-title-wrap">
+          <i class="fas fa-bolt" style="font-size: 32px; color: var(--warning); animation: float 2s infinite;"></i>
+          <h2 class="flash-title">Flash Sale</h2>
+        </div>
+        <div class="countdown-timer" id="flash-countdown">
+          <div class="countdown-box"><span class="num" id="hours">00</span><span class="lbl">Hrs</span></div>
+          <div class="countdown-box"><span class="num" id="mins">00</span><span class="lbl">Min</span></div>
+          <div class="countdown-box"><span class="num" id="secs">00</span><span class="lbl">Sec</span></div>
+        </div>
+      </div>
+      <!-- Flash sale products grid -->
+      <div class="products-grid" id="flash-products-grid">
+        <!-- Flash Sale items loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Product Tabs (Featured, Best Sellers, Latest) -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="details-tabs" style="margin-top: 0;">
+        <div class="tabs-header" style="justify-content: center; gap: 20px;">
+          <div class="tab-btn active" data-tab="featured">Featured</div>
+          <div class="tab-btn" data-tab="bestseller">Best Sellers</div>
+          <div class="tab-btn" data-tab="latest">Latest Arrivals</div>
+        </div>
+        <div class="tab-pane active" id="tab-products">
+          <div class="products-grid" id="grid-tab-products">
+            <!-- Dynamically Loaded cards -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding" style="background-color: var(--slate-100);">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--slate-900);">What Our Customers Say</h2>
+      <p style="text-align: center; color: var(--slate-500); margin-bottom: 40px;">Read reviews from our verified global shoppers</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card glass">
+          <p class="testimonial-text">"NovaCart has completely transformed my online shopping. The checkout was seamless, and the product quality is top-notch. Highly recommended!"</p>
+          <div class="testimonial-user">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop" alt="Sarah K.">
+            <div>
+              <h4>Sarah Connor</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p class="testimonial-text">"I bought a mid-century sofa and some tech gear. Both arrived super fast. Customer support helped me apply my coupon code without any fuss."</p>
+          <div class="testimonial-user">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop" alt="Marcus V.">
+            <div>
+              <h4>Marcus Vance</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p class="testimonial-text">"The interface feels incredibly premium, and it has an amazing dark mode. Seeding mock orders allowed me to test tracking, which is awesome."</p>
+          <div class="testimonial-user">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop" alt="John D.">
+            <div>
+              <h4>John Davis</h4>
+              <span>Tech Reviewer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="container" style="margin-top: 80px;">
+    <div class="newsletter-section glass shadow-premium">
+      <h2 style="margin-top: 0;">Subscribe to Our Newsletter</h2>
+      <p>Sign up to receive announcements on weekly sales, new products, and exclusive coupon codes.</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Your Email Address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-shopping-bag"></i> Nova<span>Cart</span></div>
+        <p>Your premier destination for high-quality electronics, modern designer furniture, and trending style apparel. Experience the future of retail today.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/shop/">Shop</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Customer Support</h3>
+        <ul>
+          <li><a href="/dashboard/">My Account</a></li>
+          <li><a href="/cart/">View Cart</a></li>
+          <li><a href="/wishlist/">Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Store Address</h3>
+        <p style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 100 Maple St, San Francisco, CA</p>
+        <p style="margin-bottom: 12px;"><i class="fas fa-phone" style="margin-right: 8px;"></i> +1 (555) 123-4567</p>
+        <p><i class="fas fa-envelope" style="margin-right: 8px;"></i> support@novacart.com</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 NovaCart Inc. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms & Conditions</a></p>
+    </div>
+  </footer>
+
+  <!-- Firebase & Services Scripts -->
+  <script src="/static/firebase-config.js"></script>
+  <script src="/static/firebase-services.js"></script>
+  <script src="/static/js/main.js"></script>
+
+  <!-- Local Page Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      loadCategories();
+      loadFlashSaleProducts();
+      initProductTabs();
+      initCountdown();
+      initNewsletter();
+    });
+
+    // Load dynamic categories listing
+    async function loadCategories() {
+      const container = document.getElementById("categories-list");
+      try {
+        const categories = await window.NovaDB.getCategories();
+        container.innerHTML = categories.map(cat => `
+          <div class="category-card" onclick="window.location.href='/shop/?category=${cat.categoryId}'">
+            <div class="category-icon-wrapper">
+              <img src="${cat.image}" alt="${cat.name}">
+            </div>
+            <span>${cat.name}</span>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error("Failed to load categories:", err);
+      }
+    }
+
+    // Load Flash Sale Products (Limit 4)
+    async function loadFlashSaleProducts() {
+      const grid = document.getElementById("flash-products-grid");
+      grid.innerHTML = Array(4).fill(0).map(() => '<div class="skeleton-card"></div>').join('');
+      
+      try {
+        const res = await window.NovaDB.getProducts({ limit: 12 });
+        // filter products that have flashSale details
+        const flashItems = res.products.filter(p => p.flashSale).slice(0, 4);
+        
+        if (flashItems.length === 0) {
+          grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color:white;">No products currently on flash sale.</p>';
+          return;
+        }
+
+        renderProductGrid(flashItems, grid, true);
+      } catch (err) {
+        grid.innerHTML = '<p style="color:var(--danger)">Error loading products.</p>';
+      }
+    }
+
+    // Handle Home Page dynamic tabs switching
+    let activeTab = "featured";
+    function initProductTabs() {
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeTab = btn.getAttribute("data-tab");
+          loadTabProducts();
+        });
+      });
+      loadTabProducts(); // initial load
+    }
+
+    async function loadTabProducts() {
+      const grid = document.getElementById("grid-tab-products");
+      grid.innerHTML = Array(8).fill(0).map(() => '<div class="skeleton-card"></div>').join('');
+
+      try {
+        const filters = { limit: 8 };
+        if (activeTab === "featured") filters.featured = "true";
+        if (activeTab === "bestseller") filters.bestseller = "true";
+        if (activeTab === "latest") filters.latest = "true";
+
+        const res = await window.NovaDB.getProducts(filters);
+        renderProductGrid(res.products, grid);
+      } catch (err) {
+        grid.innerHTML = '<p style="color:var(--danger)">Error loading products.</p>';
+      }
+    }
+
+    // Helper to render products list
+    function renderProductGrid(products, element, isFlash = false) {
+      const wishlist = window.WishlistManager.get();
+      element.innerHTML = products.map(p => {
+        const discPrice = p.price * (1 - p.discount/100.0);
+        const hasDiscount = p.discount > 0;
+        const isWishlisted = wishlist.includes(p.productId) ? 'active' : '';
+        
+        // Star rendering
+        const fullStars = Math.floor(p.rating);
+        const halfStar = p.rating % 1 >= 0.5 ? 1 : 0;
+        const emptyStars = 5 - fullStars - halfStar;
+        const starsHtml = '<i class="fas fa-star"></i>'.repeat(fullStars) + 
+                          (halfStar ? '<i class="fas fa-star-half-alt"></i>' : '') + 
+                          '<i class="far fa-star"></i>'.repeat(emptyStars);
+
+        // Flash sale progress bar calculation
+        const progressHtml = isFlash ? `
+          <div class="stock-progress-wrap">
+            <div style="display:flex; justify-content:space-between;">
+              <span>Only ${p.stock} left in stock</span>
+              <span>${Math.round((p.stock/50)*100)}%</span>
+            </div>
+            <div class="stock-progress-bar">
+              <div class="stock-progress-fill" style="width: ${(p.stock/50)*100}%"></div>
+            </div>
+          </div>
+        ` : '';
+
+        return `
+          <div class="product-card glass" data-id="${p.productId}">
+            <div class="product-image-container">
+              <img src="${p.images[0]}" alt="${p.name}">
+              ${hasDiscount ? `<span class="product-discount-tag">${p.discount}% OFF</span>` : ''}
+              <button class="product-wishlist-btn ${isWishlisted}" onclick="event.preventDefault(); window.WishlistManager.toggle('${p.productId}'); event.currentTarget.classList.toggle('active')">
+                <i class="fas fa-heart"></i>
+              </button>
+              <div class="product-quickview-overlay">
+                <button class="btn-quickview" onclick="window.location.href='/product/${p.productId}/'">Quick View</button>
+              </div>
+            </div>
+            <div class="product-details-content">
+              <span class="product-brand">${p.brand}</span>
+              <a href="/product/${p.productId}/" class="product-title">${p.name}</a>
+              <div class="product-rating-row">
+                ${starsHtml}
+                <span>(${p.reviewCount})</span>
+              </div>
+              <div class="product-price-row">
+                <span class="product-current-price">$${discPrice.toFixed(2)}</span>
+                ${hasDiscount ? `<span class="product-original-price">$${p.price.toFixed(2)}</span>` : ''}
+              </div>
+              ${progressHtml}
+              <div class="product-card-footer">
+                <button class="product-add-cart-btn" onclick="window.CartManager.add('${p.productId}')">
+                  <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Flash countdown timer initialization
+    function initCountdown() {
+      const countdown = document.getElementById("flash-countdown");
+      if (!countdown) return;
+
+      const hrsVal = document.getElementById("hours");
+      const minsVal = document.getElementById("mins");
+      const secsVal = document.getElementById("secs");
+
+      // Set date to 6 hours in the future
+      let endTime = Date.now() + 6 * 60 * 60 * 1000;
+
+      function updateTime() {
+        let diff = endTime - Date.now();
+        if (diff <= 0) {
+          endTime = Date.now() + 6 * 60 * 60 * 1000; // Reset
+          diff = endTime - Date.now();
+        }
+
+        let hours = Math.floor(diff / (1000 * 60 * 60));
+        let minutes = Math.floor((diff / (1000 * 60)) % 60);
+        let seconds = Math.floor((diff / 1000) % 60);
+
+        hrsVal.textContent = String(hours).padStart(2, '0');
+        minsVal.textContent = String(minutes).padStart(2, '0');
+        secsVal.textContent = String(seconds).padStart(2, '0');
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    }
+
+    // Newsletter submit query validation
+    function initNewsletter() {
+      const form = document.getElementById("newsletter-form");
+      if (!form) return;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = form.querySelector("input").value;
+        window.showToast("Subscribed successfully! Check your inbox for WELCOME10.", "success");
+        form.reset();
+      });
+    }
+
+    // Sync wishlist button toggling from other pages/modals
+    window.addEventListener('wishlistUpdated', (e) => {
+      const { productId } = e.detail;
+      const card = document.querySelector(`.product-card[data-id="${productId}"]`);
+      if (card) {
+        const btn = card.querySelector('.product-wishlist-btn');
+        const list = window.WishlistManager.get();
+        if (list.includes(productId)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

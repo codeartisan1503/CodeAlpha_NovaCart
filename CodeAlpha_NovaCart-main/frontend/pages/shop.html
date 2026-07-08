@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - NovaCart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="glass scrolled">
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fas fa-shopping-bag"></i> Nova<span>Cart</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button id="theme-toggle" class="nav-icon"><i class="fas fa-moon"></i></button>
+        <a href="/wishlist/" class="nav-icon">
+          <i class="fas fa-heart"></i>
+          <span id="wishlist-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge-count" style="display: none;">0</span>
+        </a>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="margin-top: 100px; margin-bottom: 80px;">
+    <div class="shop-layout">
+      <!-- Sidebar Filters -->
+      <aside class="filter-sidebar glass">
+        <!-- Live Search Bar -->
+        <div class="filter-group">
+          <h3>Search</h3>
+          <div style="position: relative;">
+            <input type="text" id="shop-search-input" placeholder="Search products..." style="background-color: var(--slate-100); border: 1px solid var(--slate-200); padding: 10px 32px 10px 16px; border-radius: var(--radius-sm); width: 100%;">
+            <i class="fas fa-search" style="position: absolute; right: 12px; top: 12px; color: var(--slate-400);"></i>
+          </div>
+        </div>
+
+        <!-- Categories Checklist -->
+        <div class="filter-group">
+          <h3>Categories</h3>
+          <div class="filter-options" id="filter-categories-list">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+
+        <!-- Price Range Slider -->
+        <div class="filter-group">
+          <h3>Price Range</h3>
+          <input type="range" id="price-slider" class="price-range-slider" min="0" max="2000" step="50" value="2000">
+          <div class="price-values">
+            <span>$0</span>
+            <span id="max-price-label">Max: $2000</span>
+          </div>
+        </div>
+
+        <!-- Brands Checklist -->
+        <div class="filter-group">
+          <h3>Brand</h3>
+          <div class="filter-options" id="filter-brands-list">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+
+        <!-- Rating checklist -->
+        <div class="filter-group">
+          <h3>Minimum Rating</h3>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="radio" name="rating-filter" value="" checked> All Ratings
+            </label>
+            <label class="filter-checkbox">
+              <input type="radio" name="rating-filter" value="4.5"> 4.5★ & Above
+            </label>
+            <label class="filter-checkbox">
+              <input type="radio" name="rating-filter" value="4.0"> 4.0★ & Above
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="btn-clear-filters" class="btn-secondary" style="width: 100%; justify-content: center; padding: 10px;">
+          <i class="fas fa-undo"></i> Clear All Filters
+        </button>
+      </aside>
+
+      <!-- Products Content Listing -->
+      <main>
+        <div class="shop-header-row">
+          <div class="shop-results-count" id="results-count-label">Loading products...</div>
+          <div class="shop-sorting-wrap">
+            <span style="font-size: 14px; font-weight: 600; color: var(--slate-600);">Sort By</span>
+            <select id="sort-select" class="sort-select">
+              <option value="newest">Newest Arrivals</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating-desc">Customer Rating</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="shop-products-grid">
+          <!-- skeleton cards loader -->
+        </div>
+
+        <!-- Pagination Section -->
+        <div style="margin-top: 50px; display: flex; justify-content: center; gap: 8px;" id="pagination-controls">
+          <!-- dynamically rendered -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-shopping-bag"></i> Nova<span>Cart</span></div>
+        <p>Your premier destination for high-quality electronics, modern designer furniture, and trending style apparel.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/shop/">Shop</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Customer Support</h3>
+        <ul>
+          <li><a href="/dashboard/">My Account</a></li>
+          <li><a href="/cart/">View Cart</a></li>
+          <li><a href="/wishlist/">Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Store Address</h3>
+        <p style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 100 Maple St, San Francisco, CA</p>
+        <p><i class="fas fa-envelope" style="margin-right: 8px;"></i> support@novacart.com</p>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="border-top:1px solid var(--slate-800); padding-top: 30px;">
+      <p>&copy; 2026 NovaCart Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Firebase & Services Scripts -->
+  <script src="/static/firebase-config.js"></script>
+  <script src="/static/firebase-services.js"></script>
+  <script src="/static/js/main.js"></script>
+
+  <!-- Local Page Logic -->
+  <script>
+    let currentFilters = {
+      page: 1,
+      limit: 9,
+      search: "",
+      category: "",
+      brand: "",
+      maxPrice: 2000,
+      rating: "",
+      sortBy: "newest"
+    };
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Sync category from URL params
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlCat = urlParams.get('category');
+      if (urlCat) currentFilters.category = urlCat;
+
+      const urlSearch = urlParams.get('search');
+      if (urlSearch) {
+        currentFilters.search = urlSearch;
+        document.getElementById("shop-search-input").value = urlSearch;
+      }
+
+      await loadFilterOptions();
+      await fetchShopProducts();
+      initFilterListeners();
+    });
+
+    // Load filter labels from API
+    async function loadFilterOptions() {
+      // Load categories checklist
+      const catList = document.getElementById("filter-categories-list");
+      try {
+        const categories = await window.NovaDB.getCategories();
+        catList.innerHTML = categories.map(cat => `
+          <label class="filter-checkbox">
+            <input type="radio" name="category-filter" value="${cat.categoryId}" ${currentFilters.category === cat.categoryId ? 'checked' : ''}>
+            ${cat.name}
+          </label>
+        `).join('');
+
+        // Add "All Categories" as default
+        catList.insertAdjacentHTML('afterbegin', `
+          <label class="filter-checkbox">
+            <input type="radio" name="category-filter" value="" ${!currentFilters.category ? 'checked' : ''}>
+            All Categories
+          </label>
+        `);
+      } catch (err) {
+        console.error(err);
+      }
+
+      // Load distinct brands from seeded products list
+      const brandList = document.getElementById("filter-brands-list");
+      try {
+        const res = await window.NovaDB.getProducts({ limit: 100 });
+        const brands = [...new Set(res.products.map(p => p.brand))].sort();
+        
+        brandList.innerHTML = brands.map(b => `
+          <label class="filter-checkbox">
+            <input type="radio" name="brand-filter" value="${b.toLowerCase()}" ${currentFilters.brand === b.toLowerCase() ? 'checked' : ''}>
+            ${b}
+          </label>
+        `).join('');
+
+        brandList.insertAdjacentHTML('afterbegin', `
+          <label class="filter-checkbox">
+            <input type="radio" name="brand-filter" value="" ${!currentFilters.brand ? 'checked' : ''}>
+            All Brands
+          </label>
+        `);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // Set up filter actions
+    function initFilterListeners() {
+      // Live search input (with debounce)
+      let searchTimeout;
+      const searchInput = document.getElementById("shop-search-input");
+      searchInput.addEventListener("input", (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          currentFilters.search = e.target.value;
+          currentFilters.page = 1;
+          fetchShopProducts();
+        }, 300);
+      });
+
+      // Categories radio buttons delegation
+      document.getElementById("filter-categories-list").addEventListener("change", (e) => {
+        if (e.target.name === "category-filter") {
+          currentFilters.category = e.target.value;
+          currentFilters.page = 1;
+          fetchShopProducts();
+        }
+      });
+
+      // Brands radio buttons delegation
+      document.getElementById("filter-brands-list").addEventListener("change", (e) => {
+        if (e.target.name === "brand-filter") {
+          currentFilters.brand = e.target.value;
+          currentFilters.page = 1;
+          fetchShopProducts();
+        }
+      });
+
+      // Price slider
+      const slider = document.getElementById("price-slider");
+      const priceLabel = document.getElementById("max-price-label");
+      slider.addEventListener("input", (e) => {
+        priceLabel.textContent = `Max: $${e.target.value}`;
+      });
+      slider.addEventListener("change", (e) => {
+        currentFilters.maxPrice = e.target.value;
+        currentFilters.page = 1;
+        fetchShopProducts();
+      });
+
+      // Ratings radios
+      document.querySelectorAll("input[name='rating-filter']").forEach(radio => {
+        radio.addEventListener("change", (e) => {
+          currentFilters.rating = e.target.value;
+          currentFilters.page = 1;
+          fetchShopProducts();
+        });
+      });
+
+      // Sorting change
+      document.getElementById("sort-select").addEventListener("change", (e) => {
+        currentFilters.sortBy = e.target.value;
+        currentFilters.page = 1;
+        fetchShopProducts();
+      });
+
+      // Clear filters
+      document.getElementById("btn-clear-filters").addEventListener("click", () => {
+        currentFilters = {
+          page: 1,
+          limit: 9,
+          search: "",
+          category: "",
+          brand: "",
+          maxPrice: 2000,
+          rating: "",
+          sortBy: "newest"
+        };
+        
+        // Reset HTML inputs
+        searchInput.value = "";
+        slider.value = 2000;
+        priceLabel.textContent = "Max: $2000";
+        document.getElementById("sort-select").value = "newest";
+        
+        // Reload inputs
+        loadFilterOptions();
+        
+        // Reset selected radios
+        document.querySelectorAll("input[name='rating-filter']").forEach(r => {
+          r.checked = r.value === "";
+        });
+
+        fetchShopProducts();
+        window.showToast("Filters reset", "info");
+      });
+    }
+
+    // Call API and draw products
+    async function fetchShopProducts() {
+      const grid = document.getElementById("shop-products-grid");
+      grid.innerHTML = Array(6).fill(0).map(() => '<div class="skeleton-card"></div>').join('');
+      
+      const countLabel = document.getElementById("results-count-label");
+      
+      try {
+        const filters = {
+          page: currentFilters.page,
+          limit: currentFilters.limit,
+          sortBy: currentFilters.sortBy
+        };
+        
+        if (currentFilters.search) filters.search = currentFilters.search;
+        if (currentFilters.category) filters.category = currentFilters.category;
+        if (currentFilters.brand) filters.brand = currentFilters.brand;
+        if (currentFilters.maxPrice) filters.maxPrice = currentFilters.maxPrice;
+        if (currentFilters.rating) filters.rating = currentFilters.rating;
+
+        const res = await window.NovaDB.getProducts(filters);
+        
+        countLabel.textContent = `Showing ${res.products.length} of ${res.total} products`;
+
+        if (res.products.length === 0) {
+          grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p style="font-size:18px; color:var(--slate-500);">No products match your filters.</p></div>';
+          document.getElementById("pagination-controls").innerHTML = "";
+          return;
+        }
+
+        renderProducts(res.products, grid);
+        renderPagination(res.page, res.pages);
+      } catch (err) {
+        grid.innerHTML = '<p style="color:var(--danger)">Error loading products.</p>';
+      }
+    }
+
+    function renderProducts(products, element) {
+      const wishlist = window.WishlistManager.get();
+      element.innerHTML = products.map(p => {
+        const discPrice = p.price * (1 - p.discount/100.0);
+        const hasDiscount = p.discount > 0;
+        const isWishlisted = wishlist.includes(p.productId) ? 'active' : '';
+
+        // Star rendering
+        const fullStars = Math.floor(p.rating);
+        const halfStar = p.rating % 1 >= 0.5 ? 1 : 0;
+        const emptyStars = 5 - fullStars - halfStar;
+        const starsHtml = '<i class="fas fa-star"></i>'.repeat(fullStars) + 
+                          (halfStar ? '<i class="fas fa-star-half-alt"></i>' : '') + 
+                          '<i class="far fa-star"></i>'.repeat(emptyStars);
+
+        const isOutOfStock = p.stock === 0;
+
+        return `
+          <div class="product-card glass" data-id="${p.productId}">
+            <div class="product-image-container">
+              <img src="${p.images[0]}" alt="${p.name}">
+              ${hasDiscount ? `<span class="product-discount-tag">${p.discount}% OFF</span>` : ''}
+              ${isOutOfStock ? `<span class="product-discount-tag" style="background:var(--slate-500); left:auto; right:12px;">OUT OF STOCK</span>` : ''}
+              <button class="product-wishlist-btn ${isWishlisted}" onclick="event.preventDefault(); window.WishlistManager.toggle('${p.productId}'); event.currentTarget.classList.toggle('active')">
+                <i class="fas fa-heart"></i>
+              </button>
+              <div class="product-quickview-overlay">
+                <button class="btn-quickview" onclick="window.location.href='/product/${p.productId}/'">Quick View</button>
+              </div>
+            </div>
+            <div class="product-details-content">
+              <span class="product-brand">${p.brand}</span>
+              <a href="/product/${p.productId}/" class="product-title">${p.name}</a>
+              <div class="product-rating-row">
+                ${starsHtml}
+                <span>(${p.reviewCount})</span>
+              </div>
+              <div class="product-price-row">
+                <span class="product-current-price">$${discPrice.toFixed(2)}</span>
+                ${hasDiscount ? `<span class="product-original-price">$${p.price.toFixed(2)}</span>` : ''}
+              </div>
+              <div class="product-card-footer">
+                ${isOutOfStock 
+                  ? `<button class="product-add-cart-btn" style="cursor:not-allowed;" disabled><i class="fas fa-ban"></i> Out of Stock</button>`
+                  : `<button class="product-add-cart-btn" onclick="window.CartManager.add('${p.productId}')"><i class="fas fa-shopping-cart"></i> Add to Cart</button>`
+                }
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderPagination(current, total) {
+      const wrapper = document.getElementById("pagination-controls");
+      if (total <= 1) {
+        wrapper.innerHTML = "";
+        return;
+      }
+
+      let html = "";
+      // Previous button
+      html += `<button class="btn-secondary" style="padding: 8px 14px;" ${current === 1 ? 'disabled style="opacity:0.5; cursor:default;"' : `onclick="changePage(${current - 1})"`}><i class="fas fa-chevron-left"></i></button>`;
+
+      for (let i = 1; i <= total; i++) {
+        if (i === current) {
+          html += `<button class="btn-primary" style="padding: 8px 14px; box-shadow:none;">${i}</button>`;
+        } else {
+          html += `<button class="btn-secondary" style="padding: 8px 14px;" onclick="changePage(${i})">${i}</button>`;
+        }
+      }
+
+      // Next button
+      html += `<button class="btn-secondary" style="padding: 8px 14px;" ${current === total ? 'disabled style="opacity:0.5; cursor:default;"' : `onclick="changePage(${current + 1})"`}><i class="fas fa-chevron-right"></i></button>`;
+      
+      wrapper.innerHTML = html;
+    }
+
+    function changePage(page) {
+      currentFilters.page = page;
+      fetchShopProducts();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Sync wishlist button toggling
+    window.addEventListener('wishlistUpdated', (e) => {
+      const { productId } = e.detail;
+      const card = document.querySelector(`.product-card[data-id="${productId}"]`);
+      if (card) {
+        const btn = card.querySelector('.product-wishlist-btn');
+        const list = window.WishlistManager.get();
+        if (list.includes(productId)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
